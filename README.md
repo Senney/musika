@@ -7,6 +7,9 @@ Libraries
 ---------
 This project makes use of the following open source libraries:
 * richadams/php-gracenote
+* twitter/bootstrap
+* jquery
+
 
 Members
 -------
