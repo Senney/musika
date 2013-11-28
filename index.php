@@ -29,14 +29,19 @@
                         <li><a href="#">Search</a></li>
                     </ul>
                 </div>
-                <div class="pull-right">
-                    <div role="search">
-                        <form>
-                            <input type="search"></input>
-                        </form>
-                    </div>
-                </div>
             </div>
+        </div>
+        <div class="jumbotron">
+			<div class="container">
+				<h1>Musika</h1>
+				<p>Musika is an open platform for music management
+				across multiple users. It was developed for CPSC471 at
+				the University of Calgary.</p>
+				<p>
+					<a class="btn btn-primary btn-lg" role="button" href="register.php">Register</a>
+					<a class="btn btn-success btn-lg" role="button" href="login.php">Login</a>
+				</p>
+			</div>
         </div>
     </body>
 </html>
