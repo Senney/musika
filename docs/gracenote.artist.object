@@ -1,0 +1,1546 @@
+array(10) {
+  [0]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "59247312-2ED193587EF0504C7A0C416ED66DA962"
+    ["album_artist_name"]=>
+    string(20) "Kings Of Convenience"
+    ["album_title"]=>
+    string(23) "Riot On An Empty Street"
+    ["album_year"]=>
+    string(4) "2004"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(25312)
+        ["text"]=>
+        string(18) "Alternative & Punk"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(35477)
+        ["text"]=>
+        string(10) "Indie Rock"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(25460)
+        ["text"]=>
+        string(9) "Indie Pop"
+      }
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(172) "http://web.content.cddbp.net/cds/2.0?id=797304D567E8970F&client=9595136&class=image&size=medium&type=image/jpeg&tag=02qrakRWCdPCGtSszHXS-ruT-V-EhkYMrouJmCFPMhNpV23vxtAGqvIw"
+    ["artist_bio_url"]=>
+    string(164) "http://web.content.cddbp.net/cds/2.0?id=22DA84B96832BF4F&client=9595136&class=biography&type=text/plain&tag=02798mx.j0I-KqXPUi8cj.Lcyn7txNjaqkEgBOSVo9WEAwOnnIROTQ2w"
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=4045DA976DB1DEFA&client=9595136&class=review&type=text/plain&tag=02FuCsdLRJXd873m-MV91I7mPS4DyA-tyic7HCwkPTS8I74OUWRMGAtg"
+    ["artist_origin"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29896)
+        ["text"]=>
+        string(11) "Scandinavia"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29990)
+        ["text"]=>
+        string(6) "Norway"
+      }
+    }
+    ["artist_era"]=>
+    array(1) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29483)
+        ["text"]=>
+        string(6) "2000's"
+      }
+    }
+    ["artist_type"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29422)
+        ["text"]=>
+        string(4) "Male"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29432)
+        ["text"]=>
+        string(8) "Male Duo"
+      }
+    }
+    ["tracks"]=>
+    array(12) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(1)
+        ["track_gnid"]=>
+        string(41) "59247313-E198021B46C38679362C35619E93396B"
+        ["track_title"]=>
+        string(8) "Homesick"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [1]=>
+      array(6) {
+        ["track_number"]=>
+        int(2)
+        ["track_gnid"]=>
+        string(41) "59247314-D804A453F710962006B26CABC1843CF8"
+        ["track_title"]=>
+        string(7) "Misread"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [2]=>
+      array(6) {
+        ["track_number"]=>
+        int(3)
+        ["track_gnid"]=>
+        string(41) "59247315-94BB900357523AB859D3CDDC0E402198"
+        ["track_title"]=>
+        string(14) "Cayman Islands"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [3]=>
+      array(6) {
+        ["track_number"]=>
+        int(4)
+        ["track_gnid"]=>
+        string(41) "59247316-4D1103A6F0739400A64204525F32D2AE"
+        ["track_title"]=>
+        string(19) "Stay Out Of Trouble"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [4]=>
+      array(6) {
+        ["track_number"]=>
+        int(5)
+        ["track_gnid"]=>
+        string(41) "59247317-E9B926D7DFF9FA8194C7D88F76CAC468"
+        ["track_title"]=>
+        string(8) "Know-How"
+        ["track_artist_name"]=>
+        string(32) "Kings Of Convenience Feat. Feist"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [5]=>
+      array(6) {
+        ["track_number"]=>
+        int(6)
+        ["track_gnid"]=>
+        string(41) "59247318-A0F2C35D45AF485B75D853B4DDCF3729"
+        ["track_title"]=>
+        string(15) "Sorry Or Please"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [6]=>
+      array(6) {
+        ["track_number"]=>
+        int(7)
+        ["track_gnid"]=>
+        string(41) "59247319-3779AB838D95C3D763856D8E33035559"
+        ["track_title"]=>
+        string(20) "Love Is No Big Truth"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [7]=>
+      array(6) {
+        ["track_number"]=>
+        int(8)
+        ["track_gnid"]=>
+        string(41) "59247320-E6F64E85C225B7C238FF0FA830E457FC"
+        ["track_title"]=>
+        string(25) "I'd Rather Dance With You"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [8]=>
+      array(6) {
+        ["track_number"]=>
+        int(9)
+        ["track_gnid"]=>
+        string(41) "59247321-8CC1515BD2BB7D1D728B7285FC123A64"
+        ["track_title"]=>
+        string(9) "Live Long"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [9]=>
+      array(6) {
+        ["track_number"]=>
+        int(10)
+        ["track_gnid"]=>
+        string(41) "59247322-F9B8B167C4007A4785F1B01A72C34507"
+        ["track_title"]=>
+        string(11) "Suprise Ice"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [10]=>
+      array(6) {
+        ["track_number"]=>
+        int(11)
+        ["track_gnid"]=>
+        string(41) "59247323-F46F13DA3CF52A5A6CF2F4C1CEDE69BE"
+        ["track_title"]=>
+        string(25) "Gold In The Air Of Summer"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [11]=>
+      array(6) {
+        ["track_number"]=>
+        int(12)
+        ["track_gnid"]=>
+        string(41) "59247324-4192D5F9CA891AAB0CF4757CB9EDC391"
+        ["track_title"]=>
+        string(12) "The Build-Up"
+        ["track_artist_name"]=>
+        string(32) "Kings Of Convenience Feat. Feist"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [1]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "15087269-6A6A319C42765CECD7F6F1F0AF03374B"
+    ["album_artist_name"]=>
+    string(20) "Kings Of Convenience"
+    ["album_title"]=>
+    string(21) "Quiet Is The New Loud"
+    ["album_year"]=>
+    string(4) "2001"
+    ["genre"]=>
+    array(0) {
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(172) "http://web.content.cddbp.net/cds/2.0?id=797304D567E8970F&client=9595136&class=image&size=medium&type=image/jpeg&tag=02Q3WO9603JGSO4Cvdq2grCguC.I3vUs5GYLaAikxYUnjcZBIX04Yb3A"
+    ["artist_bio_url"]=>
+    string(164) "http://web.content.cddbp.net/cds/2.0?id=22DA84B96832BF4F&client=9595136&class=biography&type=text/plain&tag=02hyppuq4d94u.PbKBsamRZsJEkruSHuDb63uxL9yhDBbZq1EAS1fXfg"
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=8ECB1293F598754B&client=9595136&class=review&type=text/plain&tag=02FC6VR2sKbCKKT1vRMt-A954t-Onph7Vj1v-JRskxfTGTCelhi9HiFA"
+    ["artist_origin"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29896)
+        ["text"]=>
+        string(11) "Scandinavia"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29990)
+        ["text"]=>
+        string(6) "Norway"
+      }
+    }
+    ["artist_era"]=>
+    array(1) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29483)
+        ["text"]=>
+        string(6) "2000's"
+      }
+    }
+    ["artist_type"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29422)
+        ["text"]=>
+        string(4) "Male"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29432)
+        ["text"]=>
+        string(8) "Male Duo"
+      }
+    }
+    ["tracks"]=>
+    array(12) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(1)
+        ["track_gnid"]=>
+        string(41) "15087278-AA2DA29A3F9B02A2A889D67E4EC1D457"
+        ["track_title"]=>
+        string(32) "Winning A Battle, Losing The War"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [1]=>
+      array(6) {
+        ["track_number"]=>
+        int(2)
+        ["track_gnid"]=>
+        string(41) "15087279-E8DA62FAFD31DABF324C9EF3CDFD1AD8"
+        ["track_title"]=>
+        string(10) "Toxic Girl"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [2]=>
+      array(6) {
+        ["track_number"]=>
+        int(3)
+        ["track_gnid"]=>
+        string(41) "15087280-9564238BE7E9831792552A5DDB430809"
+        ["track_title"]=>
+        string(20) "Singing Softly To Me"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [3]=>
+      array(6) {
+        ["track_number"]=>
+        int(4)
+        ["track_gnid"]=>
+        string(41) "15087281-277A22371E3D74BCF7F14F7FCCEAD11C"
+        ["track_title"]=>
+        string(37) "I Don't Know What I Can Save You From"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [4]=>
+      array(6) {
+        ["track_number"]=>
+        int(5)
+        ["track_gnid"]=>
+        string(41) "15087270-43D8ACEFB2DF71751758BFB7944F81C1"
+        ["track_title"]=>
+        string(7) "Failure"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [5]=>
+      array(6) {
+        ["track_number"]=>
+        int(6)
+        ["track_gnid"]=>
+        string(41) "15087271-B2C28FDA35785D9FF0D2EF356BA205FD"
+        ["track_title"]=>
+        string(22) "The Weight Of My Words"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [6]=>
+      array(6) {
+        ["track_number"]=>
+        int(7)
+        ["track_gnid"]=>
+        string(41) "15087272-0FE8C923184202B5EBD6C23E045526FB"
+        ["track_title"]=>
+        string(23) "The Girl From Back Then"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [7]=>
+      array(6) {
+        ["track_number"]=>
+        int(8)
+        ["track_gnid"]=>
+        string(41) "15087273-E9DB5B2C76579D7897BFF0360BE0B117"
+        ["track_title"]=>
+        string(24) "Leaning Against The Wall"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [8]=>
+      array(6) {
+        ["track_number"]=>
+        int(9)
+        ["track_gnid"]=>
+        string(41) "15087274-99968B59BDD757CEDC8B3D9FFA919579"
+        ["track_title"]=>
+        string(11) "Little Kids"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [9]=>
+      array(6) {
+        ["track_number"]=>
+        int(10)
+        ["track_gnid"]=>
+        string(41) "15087275-A9481074D708CC630F1A3A3429596608"
+        ["track_title"]=>
+        string(22) "Summer On The Westhill"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [10]=>
+      array(6) {
+        ["track_number"]=>
+        int(11)
+        ["track_gnid"]=>
+        string(41) "15087276-90280EA14700B1B2FABB0953A15A6242"
+        ["track_title"]=>
+        string(13) "The Passenger"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [11]=>
+      array(6) {
+        ["track_number"]=>
+        int(12)
+        ["track_gnid"]=>
+        string(41) "15087277-35FDDDAEB595C6567B79D4ABCC5DF0FA"
+        ["track_title"]=>
+        string(15) "Parrallel Lines"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [2]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "22054855-E39C72805941292E19AE1F62DDA6F137"
+    ["album_artist_name"]=>
+    string(20) "Kings Of Convenience"
+    ["album_title"]=>
+    string(6) "Versus"
+    ["album_year"]=>
+    string(4) "2001"
+    ["genre"]=>
+    array(0) {
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(172) "http://web.content.cddbp.net/cds/2.0?id=797304D567E8970F&client=9595136&class=image&size=medium&type=image/jpeg&tag=026xnwC--2Vkd8AtM5rNG77vT1qHeJu-juFSA2LeDqI9SqQl4t-AK2gg"
+    ["artist_bio_url"]=>
+    string(164) "http://web.content.cddbp.net/cds/2.0?id=22DA84B96832BF4F&client=9595136&class=biography&type=text/plain&tag=02yHgkkWNDfJB4u4eQ3PnCw2C5cnpRK7INyRqmu3LOcxYwz8HTgQwS4A"
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=495B143740F14C71&client=9595136&class=review&type=text/plain&tag=02lXNANbsmIfvEbtOE27Ya6Evh3clvyHBKNH8PyreLQ-EblxlCF4cM7Q"
+    ["artist_origin"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29896)
+        ["text"]=>
+        string(11) "Scandinavia"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29990)
+        ["text"]=>
+        string(6) "Norway"
+      }
+    }
+    ["artist_era"]=>
+    array(1) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29483)
+        ["text"]=>
+        string(6) "2000's"
+      }
+    }
+    ["artist_type"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29422)
+        ["text"]=>
+        string(4) "Male"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29432)
+        ["text"]=>
+        string(8) "Male Duo"
+      }
+    }
+    ["tracks"]=>
+    array(12) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(1)
+        ["track_gnid"]=>
+        string(41) "22054856-3082A6C1BF4974514B1BA9BD090C5E6B"
+        ["track_title"]=>
+        string(55) "I Don't Know What I Can Save You From (RÃ¶yksopp Remix)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [1]=>
+      array(6) {
+        ["track_number"]=>
+        int(2)
+        ["track_gnid"]=>
+        string(41) "22054857-F48BD35C642ED824FBD45D1F4FAC72FE"
+        ["track_title"]=>
+        string(39) "The Weight Of My Words (Four Tet Remix)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [2]=>
+      array(6) {
+        ["track_number"]=>
+        int(3)
+        ["track_gnid"]=>
+        string(41) "22054858-DCDC1D9378DDD3FA88B13FA0693A99D1"
+        ["track_title"]=>
+        string(37) "The Girl From Back Then (Riton Remix)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [3]=>
+      array(6) {
+        ["track_number"]=>
+        int(4)
+        ["track_gnid"]=>
+        string(41) "22054859-F2B271B979509C1B377223CA4FF338A1"
+        ["track_title"]=>
+        string(49) "Gold For The Price Of Silver (Erot Collaboration)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [4]=>
+      array(6) {
+        ["track_number"]=>
+        int(5)
+        ["track_gnid"]=>
+        string(41) "22054860-B9F59334BB18792ED3E920131123392F"
+        ["track_title"]=>
+        string(45) "Winning A Battle, Losing The War (Andy Votel)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [5]=>
+      array(6) {
+        ["track_number"]=>
+        int(6)
+        ["track_gnid"]=>
+        string(41) "22054861-CCAD84370D33F7C04B145D17DC336379"
+        ["track_title"]=>
+        string(54) "Leaning Against The Wall (Evil Tordivel Upbeat Remake)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [6]=>
+      array(6) {
+        ["track_number"]=>
+        int(7)
+        ["track_gnid"]=>
+        string(41) "22054862-EF070CA297535F82268C3C42CEFE85EE"
+        ["track_title"]=>
+        string(37) "Toxic Girl (Monte Carlo 1963 Version)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [7]=>
+      array(6) {
+        ["track_number"]=>
+        int(8)
+        ["track_gnid"]=>
+        string(41) "22054863-A8A66F28286E7DDAC5E6CF90B394CEE3"
+        ["track_title"]=>
+        string(22) "Failure (Alfie Remake)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [8]=>
+      array(6) {
+        ["track_number"]=>
+        int(9)
+        ["track_gnid"]=>
+        string(41) "22054864-5B8CF31618CDF1ABFBF031153E818692"
+        ["track_title"]=>
+        string(28) "Little Kids (Ladytron Remix)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [9]=>
+      array(6) {
+        ["track_number"]=>
+        int(10)
+        ["track_gnid"]=>
+        string(41) "22054865-C062653BA591D05214A01B9D4554455D"
+        ["track_title"]=>
+        string(7) "Failure"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [10]=>
+      array(6) {
+        ["track_number"]=>
+        int(11)
+        ["track_gnid"]=>
+        string(41) "22054866-FFEA0EA181FBF55757EAF1A1DAB29790"
+        ["track_title"]=>
+        string(44) "Leaning Against The Wall (Bamboo Soul Remix)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [11]=>
+      array(6) {
+        ["track_number"]=>
+        int(12)
+        ["track_gnid"]=>
+        string(41) "22054867-EF9DADBDB062F4F92AE9DDCD6F98019E"
+        ["track_title"]=>
+        string(52) "The Weight Of My Words (Four Tet Instrumental Remix)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [3]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(42) "189391221-5044C3F244017E5F432E2FC08AC4DEE5"
+    ["album_artist_name"]=>
+    string(20) "Kings Of Convenience"
+    ["album_title"]=>
+    string(25) "Declaration Of Dependence"
+    ["album_year"]=>
+    string(4) "2009"
+    ["genre"]=>
+    array(0) {
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(172) "http://web.content.cddbp.net/cds/2.0?id=797304D567E8970F&client=9595136&class=image&size=medium&type=image/jpeg&tag=02l1PrDUqzySOTdMBCDvWVCzQXeJjEa8BNg0E39ZK8QhP.-9mchKVeZA"
+    ["artist_bio_url"]=>
+    string(164) "http://web.content.cddbp.net/cds/2.0?id=22DA84B96832BF4F&client=9595136&class=biography&type=text/plain&tag=022fw3gSNT9EdEmu2i0RzTHrIfmgDVHgg60C0ClKJUAkLNKgILadk7LQ"
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=15B03FC93AF163C1&client=9595136&class=review&type=text/plain&tag=023V3Anf4QIQOCQi.QlwTJ2SZt3dFwiYBDEnxo2iGVAOcvsU3Zf23gjA"
+    ["artist_origin"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29896)
+        ["text"]=>
+        string(11) "Scandinavia"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29990)
+        ["text"]=>
+        string(6) "Norway"
+      }
+    }
+    ["artist_era"]=>
+    array(1) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29483)
+        ["text"]=>
+        string(6) "2000's"
+      }
+    }
+    ["artist_type"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29422)
+        ["text"]=>
+        string(4) "Male"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29432)
+        ["text"]=>
+        string(8) "Male Duo"
+      }
+    }
+    ["tracks"]=>
+    array(13) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(1)
+        ["track_gnid"]=>
+        string(42) "189391222-F228588B24AD8543C6FAE9C62A35D2CD"
+        ["track_title"]=>
+        string(5) "24-25"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [1]=>
+      array(6) {
+        ["track_number"]=>
+        int(2)
+        ["track_gnid"]=>
+        string(42) "189391223-AE0BF00F2199CEF2893912B3F0881088"
+        ["track_title"]=>
+        string(9) "Mrs. Cold"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [2]=>
+      array(6) {
+        ["track_number"]=>
+        int(3)
+        ["track_gnid"]=>
+        string(42) "189391224-5A4656592D4B6C284CDE6998C7C12527"
+        ["track_title"]=>
+        string(9) "Me In You"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [3]=>
+      array(6) {
+        ["track_number"]=>
+        int(4)
+        ["track_gnid"]=>
+        string(42) "189391225-1108B24A7707A08CED1A7AEAE3F49193"
+        ["track_title"]=>
+        string(11) "Boat Behind"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [4]=>
+      array(6) {
+        ["track_number"]=>
+        int(5)
+        ["track_gnid"]=>
+        string(42) "189391226-1102E0A9428ED5E2A326CA94E6FEEAB6"
+        ["track_title"]=>
+        string(13) "Rule My World"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [5]=>
+      array(6) {
+        ["track_number"]=>
+        int(6)
+        ["track_gnid"]=>
+        string(42) "189391227-B81BC36D928CF5413A4E55398AE89CA3"
+        ["track_title"]=>
+        string(20) "My Ship Isn't Pretty"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [6]=>
+      array(6) {
+        ["track_number"]=>
+        int(7)
+        ["track_gnid"]=>
+        string(42) "189391228-205F14DF023ACCE126593DDB87F78825"
+        ["track_title"]=>
+        string(8) "Renegade"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [7]=>
+      array(6) {
+        ["track_number"]=>
+        int(8)
+        ["track_gnid"]=>
+        string(42) "189391229-00F13F6B0F4057B11B67898A7731E5E7"
+        ["track_title"]=>
+        string(20) "Power Of Not Knowing"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [8]=>
+      array(6) {
+        ["track_number"]=>
+        int(9)
+        ["track_gnid"]=>
+        string(42) "189391230-BD60C5687FE582AB38D802DE81419AA4"
+        ["track_title"]=>
+        string(20) "Peacetime Resistance"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [9]=>
+      array(6) {
+        ["track_number"]=>
+        int(10)
+        ["track_gnid"]=>
+        string(42) "189391231-A0381431287AB95EA2917600CC1E56FD"
+        ["track_title"]=>
+        string(21) "Freedom And Its Owner"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [10]=>
+      array(6) {
+        ["track_number"]=>
+        int(11)
+        ["track_gnid"]=>
+        string(42) "189391232-3D02FBE8F3BDDD9DE8EAF3936DCE3C56"
+        ["track_title"]=>
+        string(23) "Riot On An Empty Street"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [11]=>
+      array(6) {
+        ["track_number"]=>
+        int(12)
+        ["track_gnid"]=>
+        string(42) "189391233-A7AD963E4B8F55F886F9CF086F514319"
+        ["track_title"]=>
+        string(14) "Second To Numb"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+      [12]=>
+      array(6) {
+        ["track_number"]=>
+        int(13)
+        ["track_gnid"]=>
+        string(42) "189391234-6CD8033D3CEF8121DF3434E658D6E61D"
+        ["track_title"]=>
+        string(13) "Scars On Land"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [4]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "18428447-CD792F616CFC817F9245B6DCBF2CBC6F"
+    ["album_artist_name"]=>
+    string(15) "Various Artists"
+    ["album_title"]=>
+    string(9) "The Album"
+    ["album_year"]=>
+    string(4) "2001"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(25313)
+        ["text"]=>
+        string(4) "Rock"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(35481)
+        ["text"]=>
+        string(13) "European Rock"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(25524)
+        ["text"]=>
+        string(11) "Celtic Rock"
+      }
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(0) ""
+    ["artist_bio_url"]=>
+    string(0) ""
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=F6B60F1CE102DDF1&client=9595136&class=review&type=text/plain&tag=02h-mZy1VsoePDISsN9vvGOKfFJ2ljBFKOO4SF94cO4RCp-77Ei9l6PA"
+    ["artist_origin"]=>
+    string(0) ""
+    ["artist_era"]=>
+    string(0) ""
+    ["artist_type"]=>
+    string(0) ""
+    ["tracks"]=>
+    array(1) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(13)
+        ["track_gnid"]=>
+        string(41) "18428460-35C818137B2723DBDDF4FD8411339F37"
+        ["track_title"]=>
+        string(10) "Toxic Girl"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [5]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "26501464-DBE107342459ACB00938F861A6C8469C"
+    ["album_artist_name"]=>
+    string(15) "Various Artists"
+    ["album_title"]=>
+    string(15) "Acoustic Vol. 1"
+    ["album_year"]=>
+    string(4) "2002"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(25312)
+        ["text"]=>
+        string(18) "Alternative & Punk"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(25322)
+        ["text"]=>
+        string(11) "Alternative"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(25420)
+        ["text"]=>
+        string(16) "Alternative Rock"
+      }
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(0) ""
+    ["artist_bio_url"]=>
+    string(0) ""
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=88F72016F058F89C&client=9595136&class=review&type=text/plain&tag=02AkBy5AvreOW.hmhwgER06d35Eypho392IebUN4.hiaIhcdcJ5JWX7A"
+    ["artist_origin"]=>
+    string(0) ""
+    ["artist_era"]=>
+    string(0) ""
+    ["artist_type"]=>
+    string(0) ""
+    ["tracks"]=>
+    array(1) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(17)
+        ["track_gnid"]=>
+        string(41) "26501481-843059699C2AF6CD24DB17A75CD6D4C6"
+        ["track_title"]=>
+        string(10) "Toxic Girl"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [6]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "23211253-F0BB5183DF4BB97284568C0E2B7BEE35"
+    ["album_artist_name"]=>
+    string(15) "Various Artists"
+    ["album_title"]=>
+    string(22) "Pure Chillout [Disc 2]"
+    ["album_year"]=>
+    string(4) "2002"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(35469)
+        ["text"]=>
+        string(3) "Pop"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(25357)
+        ["text"]=>
+        string(14) "Easy Listening"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(25627)
+        ["text"]=>
+        string(20) "Other Easy Listening"
+      }
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(0) ""
+    ["artist_bio_url"]=>
+    string(0) ""
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=D6AB081B27AAFCE6&client=9595136&class=review&type=text/plain&tag=026U8VE.S4HL97OH3DUt8alpnDGsuuiniVpaCfwxSTKjkvzJdULkaoBA"
+    ["artist_origin"]=>
+    string(0) ""
+    ["artist_era"]=>
+    string(0) ""
+    ["artist_type"]=>
+    string(0) ""
+    ["tracks"]=>
+    array(1) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(8)
+        ["track_gnid"]=>
+        string(41) "23211261-70254B5F9C84C4C475186EB7EC97FB90"
+        ["track_title"]=>
+        string(37) "I Don't Know What I Can Save You From"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [7]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(42) "211261434-AF0D3C045E56210CB34BBE31A2DF4AD2"
+    ["album_artist_name"]=>
+    string(15) "Various Artists"
+    ["album_title"]=>
+    string(16) "Chilled Acoustic"
+    ["album_year"]=>
+    string(4) "2010"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(35470)
+        ["text"]=>
+        string(11) "Electronica"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(35495)
+        ["text"]=>
+        string(12) "Dance & Club"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(25634)
+        ["text"]=>
+        string(10) "Club Dance"
+      }
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(0) ""
+    ["artist_bio_url"]=>
+    string(0) ""
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=ECDEC503DEA2DC1F&client=9595136&class=review&type=text/plain&tag=02foc6DuAh-NX63YjiaWwJZYg3jhcxM4TLpYRKCnIb7VNdCGCRNtvnkA"
+    ["artist_origin"]=>
+    string(0) ""
+    ["artist_era"]=>
+    string(0) ""
+    ["artist_type"]=>
+    string(0) ""
+    ["tracks"]=>
+    array(1) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(16)
+        ["track_gnid"]=>
+        string(42) "211261450-8590DD802B745B4E2C84EA786CDCE425"
+        ["track_title"]=>
+        string(9) "Mrs. Cold"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [8]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(42) "119323884-53A69456EC9A03D3C4B265CE94846E98"
+    ["album_artist_name"]=>
+    string(15) "Various Artists"
+    ["album_title"]=>
+    string(18) "A Brokedown Melody"
+    ["album_year"]=>
+    string(4) "2006"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(35472)
+        ["text"]=>
+        string(10) "Soundtrack"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(25407)
+        ["text"]=>
+        string(22) "Original Film/TV Music"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(35583)
+        ["text"]=>
+        string(18) "General Film Music"
+      }
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(0) ""
+    ["artist_bio_url"]=>
+    string(0) ""
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=885941874B3C5C3C&client=9595136&class=review&type=text/plain&tag=02SlIg7YqGY.FTfmwYjQR19cSqx5-JDMXgKrXp1.iQrpjUbKr6K3XHzQ"
+    ["artist_origin"]=>
+    string(0) ""
+    ["artist_era"]=>
+    string(0) ""
+    ["artist_type"]=>
+    string(0) ""
+    ["tracks"]=>
+    array(1) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(3)
+        ["track_gnid"]=>
+        string(42) "119323887-48B08DF2E6BCB1968C74284774AD3931"
+        ["track_title"]=>
+        string(8) "Know How"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+  [9]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "22976821-40FB3111B8A079EA7D40DCDA50313A1C"
+    ["album_artist_name"]=>
+    string(15) "Various Artists"
+    ["album_title"]=>
+    string(25) "The Album Vol. 2 [Disc 2]"
+    ["album_year"]=>
+    string(4) "2001"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(25313)
+        ["text"]=>
+        string(4) "Rock"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(35481)
+        ["text"]=>
+        string(13) "European Rock"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(25524)
+        ["text"]=>
+        string(11) "Celtic Rock"
+      }
+    }
+    ["album_art_url"]=>
+    string(0) ""
+    ["artist_image_url"]=>
+    string(0) ""
+    ["artist_bio_url"]=>
+    string(0) ""
+    ["review_url"]=>
+    string(0) ""
+    ["artist_origin"]=>
+    string(0) ""
+    ["artist_era"]=>
+    string(0) ""
+    ["artist_type"]=>
+    string(0) ""
+    ["tracks"]=>
+    array(1) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(16)
+        ["track_gnid"]=>
+        string(41) "22976837-257FD47F250DB389EE2FF27BF77EFB46"
+        ["track_title"]=>
+        string(54) "I Don't Know What I Can Save You From (Royksopp Remix)"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(0) {
+        }
+        ["tempo"]=>
+        array(0) {
+        }
+      }
+    }
+  }
+}
