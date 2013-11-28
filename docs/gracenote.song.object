@@ -1,0 +1,144 @@
+array(1) {
+  [0]=>
+  array(13) {
+    ["album_gnid"]=>
+    string(41) "59247312-2ED193587EF0504C7A0C416ED66DA962"
+    ["album_artist_name"]=>
+    string(20) "Kings Of Convenience"
+    ["album_title"]=>
+    string(23) "Riot On An Empty Street"
+    ["album_year"]=>
+    string(4) "2004"
+    ["genre"]=>
+    array(3) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(25312)
+        ["text"]=>
+        string(18) "Alternative & Punk"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(25327)
+        ["text"]=>
+        string(16) "Alternative Folk"
+      }
+      [2]=>
+      array(2) {
+        ["id"]=>
+        int(25441)
+        ["text"]=>
+        string(16) "Alternative Folk"
+      }
+    }
+    ["album_art_url"]=>
+    string(185) "http://web.content.cddbp.net/cds/2.0?id=8D43DA988315CC43&client=9595136&class=cover&origin=front&size=medium&type=image/jpeg&tag=02b.pnr38EMlujRPWMyc0ZnloeRthgkLDtzBYUzqNRAQpwV5Ma3CSOZQ"
+    ["artist_image_url"]=>
+    string(172) "http://web.content.cddbp.net/cds/2.0?id=797304D567E8970F&client=9595136&class=image&size=medium&type=image/jpeg&tag=021SzP4JxwTDxDEaag0drcHePZ9Q2JMkEx6p-2X6Cmy85c5MG.uqYrPQ"
+    ["artist_bio_url"]=>
+    string(164) "http://web.content.cddbp.net/cds/2.0?id=22DA84B96832BF4F&client=9595136&class=biography&type=text/plain&tag=022VcTLe3KcYYRvVDgVxMoj5oJ7St5u0RsUHB3ke-XRidUMnP72VI24g"
+    ["review_url"]=>
+    string(161) "http://web.content.cddbp.net/cds/2.0?id=4045DA976DB1DEFA&client=9595136&class=review&type=text/plain&tag=02v002U.uw1lgSXxWt-Ibb0.rrYUP.buL8iewbmAZiXs7AOlnN0cH11w"
+    ["artist_era"]=>
+    array(1) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29483)
+        ["text"]=>
+        string(6) "2000's"
+      }
+    }
+    ["artist_type"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29422)
+        ["text"]=>
+        string(4) "Male"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29432)
+        ["text"]=>
+        string(8) "Male Duo"
+      }
+    }
+    ["artist_origin"]=>
+    array(2) {
+      [0]=>
+      array(2) {
+        ["id"]=>
+        int(29896)
+        ["text"]=>
+        string(11) "Scandinavia"
+      }
+      [1]=>
+      array(2) {
+        ["id"]=>
+        int(29990)
+        ["text"]=>
+        string(6) "Norway"
+      }
+    }
+    ["tracks"]=>
+    array(1) {
+      [0]=>
+      array(6) {
+        ["track_number"]=>
+        int(1)
+        ["track_gnid"]=>
+        string(41) "59247313-E198021B46C38679362C35619E93396B"
+        ["track_title"]=>
+        string(8) "Homesick"
+        ["track_artist_name"]=>
+        string(20) "Kings Of Convenience"
+        ["mood"]=>
+        array(2) {
+          [0]=>
+          array(2) {
+            ["id"]=>
+            int(42949)
+            ["text"]=>
+            string(10) "Melancholy"
+          }
+          [1]=>
+          array(2) {
+            ["id"]=>
+            int(65343)
+            ["text"]=>
+            string(16) "Light Melancholy"
+          }
+        }
+        ["tempo"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["id"]=>
+            int(34283)
+            ["text"]=>
+            string(12) "Medium Tempo"
+          }
+          [1]=>
+          array(2) {
+            ["id"]=>
+            int(34289)
+            ["text"]=>
+            string(11) "Medium Slow"
+          }
+          [2]=>
+          array(2) {
+            ["id"]=>
+            int(34311)
+            ["text"]=>
+            string(3) "60s"
+          }
+        }
+      }
+    }
+  }
+}
