@@ -10,6 +10,7 @@ require_once "common/common.php"
         <?php
         load_bootstrap_css();
         ?>
+        <link href="css/register.css" rel="stylesheet">
     </head>
     <body>
 		<?php
@@ -20,17 +21,11 @@ require_once "common/common.php"
 				<div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4 well well-sm">
 					<legend>Register for Musika</legend>
 					<form action="handlers/register_handler.php" method="post" class="form" role="form">
-						<div class="row">
-							<div class="col-xs-6 col-md-6">
-								<input class="form-control" name="firstname" placeholder="First Name" type="text" required autofocus />
-							</div>
-							<div class="col-xs-6 col-md-6">
-								<input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
-							</div>
-						</div>
+						<input class="form-control" name="username" placeholder="Username" type="text" />
 						<input class="form-control" name="email" placeholder="Email Address" type="email" />
-						<input class="form-control" name="emailconfirm" placeholder="Re-Enter Your Email" type="email" />
 						<input class="form-control" name="password" placeholder="Password" type="password" />
+						<input class="form-control" name="passwordconfirm" placeholder="Re-Enter Your Password" type="password" />
+						<button class="btn btn-lg btn-primary btn-block" type="Submit">Submit Registration</button>
 					</form>
 				</div>
 			</div>
