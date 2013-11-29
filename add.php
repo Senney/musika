@@ -20,14 +20,17 @@ require_once "./common/common.php";
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h3>Add a Song to your Library</h3>
+						<h5>Click a result from the auto-populated search results to fill in the form.</h5>
 						<form class="form form-add-song" role="form" method="handlers/add_song_handler.php" />
 							<div class="row">
-								<div class="col-xs-3 col-md-3">
+								<div class="col-xs-9 col-md-9">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-music"></span></span>
 										<input type="text" name="song-name" class="form-control" placeholder="Song Title" required autofocus />
 									</div>
 								</div>
+							</div>
+							<div class="row row-pad-top">
 								<div class="col-xs-3 col-md-3">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
@@ -41,10 +44,18 @@ require_once "./common/common.php";
 									</div>
 								</div>
 								<div class="col-xs-3 col-md-3">
-									<button class="btn btn-primary btn-block" type="submit">Add Song</button>
-								</div>
-							</div>
-							<div class="form-group">							
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-floppy-disk"></span></span>				
+										<select class="form-control" name="media-type">
+											<option value="digital">Digital</option>
+											<option value="cd">CD</option>
+											<option value="record">Record</option>
+										</select>	
+									</div>			
+								</div>	
+								<div class="col-xs-3 col-md-3">
+									<button class="btn btn-success btn-block" type="submit">Add Song</button>
+								</div>					
 							</div>
 						</form>
 					</div>
@@ -56,6 +67,54 @@ require_once "./common/common.php";
 						</ul>
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3>Add an Album to your Library</h3>
+						<h5>Click a result from the auto-populated search results to fill in the form.</h5>
+						<form class="form form-add-song" role="form" method="handlers/add_song_handler.php" />
+							<div class="row">
+								<div class="col-xs-9 col-md-9">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-headphones"></span></span>
+										<input type="text" name="album-name" class="form-control" placeholder="Album Name" required autofocus />
+									</div>
+								</div>
+							</div>
+							<div class="row row-pad-top">
+								<div class="col-xs-3 col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+										<input type="text" name="artist-name" class="form-control" placeholder="Artist Name" />
+									</div>
+								</div>
+								<div class="col-xs-3 col-md-3">
+								</div>
+								<div class="col-xs-3 col-md-3">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-floppy-disk"></span></span>				
+										<select class="form-control" name="media-type">
+											<option value="digital">Digital</option>
+											<option value="cd">CD</option>
+											<option value="record">Record</option>
+										</select>	
+									</div>			
+								</div>	
+								<div class="col-xs-3 col-md-3">
+									<button class="btn btn-success btn-block" type="submit">Add Album</button>
+								</div>					
+							</div>
+						</form>
+					</div>
+					<div class="panel-body">
+						<h4>Search Results:</h4>
+						<ul>
+							<li>Album Result 1</li>
+							<li>Album Result 2</li>
+						</ul>
+					</div>
+				</div>				
 			</div>
 		</div>
 	</body>
