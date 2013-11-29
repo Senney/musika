@@ -5,6 +5,7 @@ echo '
 <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="libs/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 <link href="css/musika-common.css" rel="stylesheet">
+<script src="libs/jquery.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
 ';
 }
