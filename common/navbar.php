@@ -8,15 +8,17 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="index.php">Musika</a>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#">My Music</a></li>
-				<li><a href="#">Playlists</a></li>
-				<li><a href="#">Discover</a></li>
-				<li><a href="#">Search</a></li>
+				<li><a href="library.php">My Music</a></li>
+				<li><a href="add.php">Add New Music</a></li>
+				<li><a href="playlist.php">Playlists</a></li>
+				<li><a href="discover.php">Discover</a></li>
+				<li><a href="search.php">Search</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-default navbar-right">
 				<!-- Add login check here. -->
