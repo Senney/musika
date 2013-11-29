@@ -19,7 +19,7 @@ class MusikaArtist {
 		$this->name = $gn_object["album_artist_name"];
 		$this->desc = file_get_contents($gn_object["artist_bio_url"]);
 		$this->era = $gn_object["artist_era"][0]["text"];
-		$this->img_url = cache_artist_image(sha1($this->name),
+		$this->img_url = cache_image(sha1($this->name),
 			$gn_object["artist_image_url"]);
 		$this->genre = $gn_object["genre"][0]["text"];
 	}
