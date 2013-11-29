@@ -4,6 +4,8 @@ include_once("../php-gracenote/Gracenote.class.php");
 include_once("../models/artist.php");
 
 function populate_cache_song($song_title, $album_name="", $artist_name="") {
+	// Ensure that the song doesn't already exist here.
+	
 	$search_type = Gracenote\WebAPI\GracenoteWebAPI::ALL_RESULTS;
 	if ($album_name != "" || $artist_name != "")
 		$search_type = Gracenote\WebAPI\GracenoteWebAPI::BEST_MATCH_ONLY;
@@ -22,6 +24,8 @@ function populate_cache_album_gnid($album_gnid) {
 	$api = get_gracenote_api();
 	$results = $api->fetchAlbum($album_gnid);
 	
+	// Ensure that the album doesn't already exist in the database here.
+	
 	// Parse the album information into an album object.
 	// Parse the artist information into an artist object.
 	$album = $results[0];
@@ -29,10 +33,15 @@ function populate_cache_album_gnid($album_gnid) {
 		// Ensure that "Various Artists" is handled properly. 
 		// Essentially this means that we step through each track on
 		// the record and attribute each artist to the album.
+		$tracks = $album["tracks"];
+		foreach ($tracks as $track) {
+			$artist = new MusikaArtist;
+			//Populate the cache with information for the artists.
+			//populate_cache_artist($artist_name);
+		}
 	} else {
 		$artist = new MusikaArtist;
 		$artist->parse($album);
-		var_dump($artist);
 	}
 
 	// Parse the track information.
