@@ -14,7 +14,6 @@ function get_gracenote_userid() {
 		$userID = $api->register();
 		/** Store the Gracenote API User ID here. **/
 	}
-	echo $userID;
 	return $userID;
 }
 
