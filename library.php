@@ -23,12 +23,20 @@ require_once "./common/common.php";
 						<h2>My Music</h2>
 						<div class="input-group">
 							<strong>View: </strong>
-							<div class="btn-group" id="view-group">
+							<div class="btn-group btn-group-toggle">
 								<button type="button" class="btn btn-default" selected>Song</button>
 								<button type="button" class="btn btn-default">Album</button>
 								<button type="button" class="btn btn-default">Artist</button>
 							</div>
 						</div>
+						<table class="table table-hover">
+							<thead id="music-display-table-head">
+								
+							</thead>
+							<tbody id="music-display-table-body">
+							
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
