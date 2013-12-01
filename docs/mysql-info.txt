@@ -1,0 +1,5 @@
+Server: www.senney.net
+Username: musika
+Password: musika
+Database: musika
+
