@@ -26,13 +26,13 @@ require_once "common/common.php"
 								<div class="form-group">
 									<div class="input-group">
 										<span class = "input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-										<input type="text" class="form-control" placeholder="Username" />
+										<input type="text" class="form-control" placeholder="Username" name="username" />
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
 										<span class = "input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-										<input type="password" class="form-control" placeholder="Password" />
+										<input type="password" class="form-control" placeholder="Password" name="password" />
 									</div>
 								</div>
 								<button type="submit" class="btn btn-primary btn-block">
