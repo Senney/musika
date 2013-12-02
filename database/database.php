@@ -16,6 +16,7 @@ function get_mysqli_link() {
 		printf("Connection failed: %s\n", mysqli_connect_error());
 		exit(1);
 	}
+	return $link;
 }
 
 // Source: http://php.net/manual/en/mysqli.prepare.php
