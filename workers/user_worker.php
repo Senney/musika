@@ -33,8 +33,12 @@ class UserWorker {
 		}
 		
 		// Only really need these two variables.
-		session_start();
-		$_SESSION["user.id"] = $user["UserId"]
+		if (!session_start()) {
+			printf("ERROR: Unable to start the session.");
+			die(1);
+		}
+		
+		$_SESSION["user.id"] = $user["UserId"];
 		$_SESSION["user.name"] = $user["username"];
 	}
 	

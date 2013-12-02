@@ -12,6 +12,7 @@ $worker = new UserWorker();
 $ret = $worker->checkLogin($_POST["username"], $_POST["password"]);
 
 if ($ret == 0) {
+	$worker->setupSession($_POST["username"]);
 	header("Location: ../index.php");
 } else {
 	header("Location: ../login.php?error=" . $ret);
