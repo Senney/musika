@@ -47,7 +47,8 @@ class UserWorker {
 		}
 		
 		$verify = password_verify($password, $result["password"]);
-		return ($verify == true : 0 ? -2);
+		if ($verify) return 0;
+		else return -2;
 	}
 	
 	public function registerUser($username, $password, $email) {
