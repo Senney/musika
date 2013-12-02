@@ -31,6 +31,6 @@ if ($ret == -1) {
 }
 
 // Redirect them to the login page.
-header("../login.php?error=register");
+header("Location: ../login.php?error=register");
 
 ?>
