@@ -24,6 +24,13 @@ if ($password != $password_confirm) {
 }
 
 $worker = new UserWorker();
-$worker->registerUser($username, $password, $email);
+$ret = $worker->registerUser($username, $password, $email);
+if ($ret == -1) {
+	header("Location: ../register.php?error=username");
+	exit(1);
+}
+
+// Redirect them to the login page.
+header("../login.php?error=register");
 
 ?>
