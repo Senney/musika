@@ -2,10 +2,12 @@
 <?php
 require "../../database/database.php";
 
+$link = get_mysqli_link();
+
 function get_song($song_name, $album_name, $artist_name) {
+	global $link;
 	$artist = get_artist($artist_name);
 	$album = get_album($album_name, $artist_name);
-	$link = get_mysqli_link();
 	
 	$query = "SELECT sg.* FROM song AS sg JOIN albumsongs AS ss WHERE ".
 		"sg.title = ? AND ss.albumId = ? AND sg.AID = ?";
@@ -17,7 +19,7 @@ function get_song($song_name, $album_name, $artist_name) {
 function add_song($song_name, $album_name, $artist_name) {
 	$artist = get_artist($artist_name);
 	$album = get_album($album_name, $artist_name);
-	$link = get_mysqli_link();
+	global $link;
 	
 	$query = "INSERT INTO song(title, description, AID) VALUES(?, ?, ?)";
 	mysqli_prepared_query($link, $query, "ssd", array($song_name, "None", $artist["artistId"]));
@@ -32,7 +34,7 @@ function add_song($song_name, $album_name, $artist_name) {
 
 function get_album($album_name, $artist_name) {
 	$artist = get_artist($artist_name);
-	$link = get_mysqli_link();
+	global $link;
 	$query = "SELECT al.* FROM album AS al JOIN albumcontributor AS ac WHERE " .
 		"ac.artistId = ? AND al.name = ?";
 	$res = mysqli_prepared_query($link, $query, "ds", 
@@ -42,7 +44,7 @@ function get_album($album_name, $artist_name) {
 
 function add_album($album_name, $artist_name) {
 	$artist = get_artist($artist_name);
-	$link = get_mysqli_link();
+	global $link;
 	$query = "INSERT INTO album(name) VALUES(?)";
 	mysqli_prepared_query($link, $query, "s", array($album_name));
 	if (mysqli_error($link)) die(mysqli_error($link));
@@ -55,7 +57,7 @@ function add_album($album_name, $artist_name) {
 }
 
 function get_artist($artist_name) {
-	$link = get_mysqli_link();
+	global $link;
 	$query = "SELECT * FROM artist WHERE name = ?";
 	$params = array($artist_name);
 	$artist = mysqli_prepared_query($link, $query, "s", $params);
@@ -63,7 +65,7 @@ function get_artist($artist_name) {
 }
 
 function add_artist($artist_name) {
-	$link = get_mysqli_link();
+	global $link;
 	$query = "INSERT INTO artist(name) VALUES(?)";
 	$params = array($artist_name);
 	mysqli_prepared_query($link, $query, "s", $params);
