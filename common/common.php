@@ -28,6 +28,13 @@ function safe_session_start() {
 	}
 }
 
+function user_logged_in() {
+	if (!isset($_SESSION) || !isset($_SESSION["user.id"])) {
+		return false;
+	}
+	return true;
+}
+
 // Start the session for all pages that include common.
 safe_session_start();
 

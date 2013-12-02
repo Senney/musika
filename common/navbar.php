@@ -21,14 +21,24 @@
 				<li><a href="search.php">Search</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-default navbar-right">
-				<!-- Add login check here. -->
-				<!--
+				<?php
+				if (user_logged_in()) {
+?>
 				<li><a href="#">Login</a></li>
 				<li><a href="#">Register</a></li>
-				-->
+<?php
+				} else {
+?>
 				<li>
-					<a href="#">Senney</a>
+					<a href="#">
+						<?php 
+						echo $_SESSION["user.name"]; 
+						?>
+					</a>
 				</li>
+<?php
+				}
+				?>
 			</ul>
 		</div>
 	</div>
