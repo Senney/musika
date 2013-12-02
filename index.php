@@ -21,10 +21,14 @@ require_once "./common/common.php";
 				<p>Musika is an open platform for music management
 				across multiple users. It was developed for CPSC471 at
 				the University of Calgary.</p>
+				<?php
+				if (!user_logged_in()) {
+				?>
 				<p>
 					<a class="btn btn-primary btn-lg" role="button" href="register.php">Register</a>
 					<a class="btn btn-success btn-lg" role="button" href="login.php">Login</a>
 				</p>
+				<?php } ?>
 			</div>
         </div>
     </body>
