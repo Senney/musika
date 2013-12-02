@@ -39,8 +39,7 @@ CREATE TABLE IF NOT EXISTS artist(
 	artistId INTEGER NOT NULL AUTO_INCREMENT,
 	name TEXT NOT NULL,
 	description TEXT,
-	startYear INTEGER,
-	endYear INTEGER,
+	era INTEGER,
 	genre INTEGER,
 	
 	PRIMARY KEY (artistId),
