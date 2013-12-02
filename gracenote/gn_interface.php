@@ -2,6 +2,8 @@
 include_once("./gracenote.php");
 include_once("../php-gracenote/Gracenote.class.php");
 include_once("../models/artist.php");
+include_once("../workers/artist_worker.php");
+include_once("../workers/album_worker.php");
 
 function populate_cache_song($song_title, $album_name="", $artist_name="") {
 	// Ensure that the song doesn't already exist here.
@@ -40,13 +42,13 @@ function populate_cache_album_gnid($album_gnid) {
 			//populate_cache_artist($artist_name);
 		}
 	} else {
+		$artistWorker = new ArtistWorker;
 		$artist = new MusikaArtist;
 		$artist->parse($album);
+		$artistWorker->saveArtist($artist);
 	}
 
 	// Parse the track information.
 }
-
-populate_cache_song("Funkytown", "", "The Chipmunks");
 
 ?>

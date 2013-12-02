@@ -23,6 +23,10 @@ class MusikaArtist {
 			$gn_object["artist_image_url"]);
 		$this->genre = $gn_object["genre"][0]["text"];
 	}
+	
+	public function toWorkerArray() {
+		return array($name, $desc, $era, $genre);
+	}
 }
 
 
