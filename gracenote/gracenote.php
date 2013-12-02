@@ -23,7 +23,7 @@ function get_gracenote_userid() {
 	global $clientID;
 	global $clientTag;
 	
-	$userId = get_db_id();
+	$userID = get_db_id();
 	if (!isset($userID) || $userID == "") {
 		$api = new Gracenote\WebAPI\GracenoteWebAPI($clientID, $clientTag);
 		$userID = $api->register();
