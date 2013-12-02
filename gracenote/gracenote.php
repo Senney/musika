@@ -9,7 +9,7 @@ function get_db_id() {
 	$query = "SELECT userId FROM gracenote";
 	$result = mysqli_prepared_query(get_mysqli_link(), $query);
 	$userId = $result[0]["userId"];
-	return userId;
+	return $userId;
 }
 
 function store_db_id($userId) {
