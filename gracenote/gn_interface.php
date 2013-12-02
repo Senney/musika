@@ -7,14 +7,18 @@ include_once("../workers/album_worker.php");
 
 function populate_cache_song($song_title, $album_name="", $artist_name="") {
 	// Ensure that the song doesn't already exist here.
-	
+	echo "Populating cache with " . $song_title;	
+
+
 	$search_type = Gracenote\WebAPI\GracenoteWebAPI::ALL_RESULTS;
 	if ($album_name != "" || $artist_name != "")
 		$search_type = Gracenote\WebAPI\GracenoteWebAPI::BEST_MATCH_ONLY;
-	
+
+	echo "Starting search...";	
 	$api = get_gracenote_api();
 	$results = $api->searchTrack($artist_name, $album_name, $song_title);
-	
+	echo "Search complete.";	
+
 	// Loop over all the albums returned and get all songs from those albums for caching.
 	foreach ($results as $res) {
 		$gnid = $res["album_gnid"];
@@ -50,5 +54,7 @@ function populate_cache_album_gnid($album_gnid) {
 
 	// Parse the track information.
 }
+
+populate_cache_song("Funkytown", "", "Lipps, Inc.");
 
 ?>
