@@ -11,11 +11,10 @@ if (!isset($_POST["username"]) || !isset($_POST["password"])) {
 $worker = new UserWorker();
 $ret = $worker->checkLogin($_POST["username"], $_POST["password"]);
 
-echo $ret;
 if ($ret == 0) {
-	//header("Location: ../index.php");
+	header("Location: ../index.php");
 } else {
-	//header("Location: ../login.php?error=" . $ret);
+	header("Location: ../login.php?error=" . $ret);
 }
 
 ?>

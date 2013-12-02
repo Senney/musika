@@ -46,7 +46,6 @@ class UserWorker {
 		if (mysqli_error($link) || count($result) == 0) {
 			return -1;
 		}
-		echo $result["password"];
 		$verify = password_verify($password, $result["password"]);
 		if ($verify) return 0;
 		else return -2;
