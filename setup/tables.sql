@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS media(
 CREATE TABLE IF NOT EXISTS artist(
 	artistId INTEGER NOT NULL AUTO_INCREMENT,
 	name TEXT NOT NULL,
-	desc TEXT,
+	description TEXT,
 	startYear INTEGER,
 	endYear INTEGER,
 	genre INTEGER,
