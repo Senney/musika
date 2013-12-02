@@ -12,7 +12,7 @@ class UserWorker {
 		if (!$result) {
 			return -1;
 		}
-		return $result;
+		return $result[0];
 	}
 	
 	public function getByName($name) {
@@ -23,7 +23,7 @@ class UserWorker {
 		if (!$result) {
 			return -1;
 		}	
-		return $result;	
+		return $result[0];
 	}
 	
 	/**
@@ -46,8 +46,8 @@ class UserWorker {
 		if (mysqli_error($link) || count($result) == 0) {
 			return -1;
 		}
-		echo $result["password"];
-		$verify = password_verify($password, $result["password"]);
+		$hashpass = $result[0]["password"];
+		$verify = password_verify($password, $hashpass);
 		if ($verify) return 0;
 		else return -2;
 	}
