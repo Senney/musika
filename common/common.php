@@ -1,7 +1,4 @@
 <?php
-
-
-
 function load_bootstrap_css() {
 echo '
 <link rel="icon" type="image/png" href="favicon.png">
