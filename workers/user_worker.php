@@ -9,7 +9,7 @@ class UserWorker {
 		$params = array($id);
 		$result = mysqli_prepared_query(get_mysqli_link(), $query, 
 			"d", $params);
-		if (!$result) {
+		if (empty($result)) {
 			return -1;
 		}
 		return $result[0];
@@ -20,10 +20,22 @@ class UserWorker {
 		$params = array($name);
 		$result = mysqli_prepared_query(get_mysqli_link(), $query, 
 			"s", $params);
-		if (!$result) {
+		if (empty($result)) {
 			return -1;
 		}	
 		return $result[0];
+	}
+	
+	public function setupSession($name) {
+		$user = $this->getByName($name);
+		if (empty($user)) {
+			return -1;
+		}
+		
+		// Only really need these two variables.
+		session_start();
+		$_SESSION["user.id"] = $user["UserId"]
+		$_SESSION["user.name"] = $user["username"];
 	}
 	
 	/**
