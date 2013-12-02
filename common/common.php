@@ -23,7 +23,7 @@ function cache_image($image_name, $image_url) {
 }
 
 function safe_session_start() {
-	if (session_status() == PHP_SESSION_NONE) {
+	if (!isset($_SESSION)) {
 		session_start();
 	}
 }

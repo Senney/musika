@@ -14,6 +14,7 @@ class ArtistWorker {
 			return -1;
 		}
 		
+		echo "Caching artist: " . $artist->name;
 		$link = get_mysqli_link();
 		$query = "INSERT INTO Artist(DEFAULT, ?, ?, ?, ?)";
 		$params = $artist->toWorkerArray();

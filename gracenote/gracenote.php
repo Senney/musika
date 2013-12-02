@@ -1,18 +1,36 @@
 <?php
 include_once("../php-gracenote/Gracenote.class.php");
+include_once("../database/database.php");
 
 $clientID  = "9595136"; // Put your Client ID here.
 $clientTag = "CDC6FD136B4193F856BA76A6F2773EFC"; // Put your Client Tag here.
+
+function get_db_id() {
+	$query = "SELECT userId FROM gracenote";
+	$result = mysqli_prepared_query(get_mysqli_link(), $query);
+	$userId = $result[0]["userId"];
+	return userId;
+}
+
+function store_db_id($userId) {
+	$link = get_mysqli_link();
+	$query = "INSERT INTO gracenote VALUES(?)";
+	$params = array($userId);
+	mysqli_prepared_query($link, $query, "s", $params);
+}
 
 function get_gracenote_userid() {
 	global $clientID;
 	global $clientTag;
 	
-	$userID = "264114340339182498-A9B8E0B66E20EE19B21EF883DDFEC9A3"; /** Later: Populate this from the database. **/
+	$userId = get_db_id();
 	if (!isset($userID) || $userID == "") {
 		$api = new Gracenote\WebAPI\GracenoteWebAPI($clientID, $clientTag);
 		$userID = $api->register();
+		
+		echo "Storing Gracenote API id.";
 		/** Store the Gracenote API User ID here. **/
+		store_db_id($userID);
 	}
 	return $userID;
 }
