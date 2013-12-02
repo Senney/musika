@@ -2,6 +2,8 @@
 
 require_once "database.config.php";
 
+error_reporting(E_ALL);
+
 function get_mysqli_link() {
 	$link = mysqli_connect(dbConfig::$server, dbConfig::$username,
 		dbConfig::$password, dbConfig::$database);
