@@ -22,4 +22,13 @@ function cache_image($image_name, $image_url) {
 	return $target_loc;
 }
 
+function safe_session_start() {
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
+}
+
+// Start the session for all pages that include common.
+safe_session_start();
+
 ?>
