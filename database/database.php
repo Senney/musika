@@ -44,6 +44,7 @@ function get_mysqli_link() {
 	) 
  **/
 function mysqli_prepared_query($link,$sql,$typeDef = FALSE,$params = FALSE){ 
+  $multiQuery = FALSE; // default to false.
   if($stmt = mysqli_prepare($link,$sql)){ 
     if(count($params) == count($params,1)){ 
       $params = array($params); 
