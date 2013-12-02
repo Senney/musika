@@ -1,3 +1,5 @@
+USE musika;
+
 CREATE TABLE users(
 	UserId INTEGER NOT NULL AUTO_INCREMENT,
 	username VARCHAR(254) NOT NULL,
