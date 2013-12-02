@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sqlite3
-import re
+import json 
 
 print "Opening connection to database."
 conn = sqlite3.connect("track_metadata.db")
@@ -17,26 +17,20 @@ while True:
 	obj = c.fetchone()
 	if obj == None:
 		break
-	songTitle = obj[1].encode("utf-8")
-	albumTitle = obj[3].encode("utf-8")
-	artistTitle = obj[6].encode("utf-8")
+	songTitle = json.dumps(obj[1].encode("utf-8"))
+	albumTitle = json.dumps(obj[3].encode("utf-8"))
+	artistTitle = json.dumps(obj[6].encode("utf-8"))
 	if (artistTitle not in artist):
-		query = "INSERT INTO artist(name) VALUES(\"%s\");"
+		query = "A %s"
 		fout.write(query % artistTitle + "\n")
 		artist[artistTitle] = 1	
-	if (albumTitle not in album):
-		query = "INSERT INTO album(name) VALUES(\"%s\");"
+	if ((albumTitle not in album) or (album[albumTitle] != artistTitle)):
+		query = "B %s"
 		fout.write(query % albumTitle + "\n")
-		query = "INSERT INTO albumcontributor VALUES(" \
-			"(SELECT artistId FROM artist WHERE name=\"%s\"),"\
-			"(SELECT albumID FROM album WHERE name=\"%s\"));"
+		query = "C %s\nC %s"
 		fout.write(query % (artistTitle, albumTitle) + "\n")
-		album[albumTitle] = 1
-	query = "INSERT INTO song(title, AID) " \
-		"SELECT \"%s\", artistId FROM artist WHERE " \
-		"name = \"%s\";"
+		album[albumTitle] = artistTitle 
+	query = "S %s\nS %s"
 	fout.write(query % (songTitle, artistTitle) + "\n")
-	query = "INSERT INTO albumsongs(albumId, songId) " \
-		"VALUES((SELECT albumID FROM album WHERE name = \"%s\"),"\
-		"(SELECT SID FROM song WHERE title = \"%s\"));"
+	query = "Z %s\nZ %s"
 	fout.write(query % (albumTitle, songTitle) + "\n")
