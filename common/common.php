@@ -34,7 +34,6 @@ function user_logged_in() {
 	}
 	
 	if (!isset($_SESSION["user.id"])) {
-		echo "Session not started!";
 		return false;
 	}
 	
