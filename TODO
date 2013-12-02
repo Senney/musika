@@ -1,0 +1,6 @@
+TODO:
+
+* Modify the SongOwnership and AlbumOwnership tables so that the media type is
+  included there. It should not be on the Album or Song items.
+* Parse the dataset. It will be glorious.
+
