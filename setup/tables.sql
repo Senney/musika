@@ -14,8 +14,7 @@ CREATE TABLE IF NOT EXISTS friend(
 	UserId INTEGER NOT NULL,
 	FriendId INTEGER NOT NULL,
 	
-	PRIMARY KEY (UserId),
-	PRIMARY KEY (FriendId),
+	PRIMARY KEY (UserId, FriendId),
 	FOREIGN KEY (UserId) REFERENCES users(UserId),
-	FOREIGN KEY (FriendId) REFERENCES users(UserId),
+	FOREIGN KEY (FriendId) REFERENCES users(UserId)
 );
