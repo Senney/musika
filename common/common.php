@@ -29,9 +29,15 @@ function safe_session_start() {
 }
 
 function user_logged_in() {
-	if (!isset($_SESSION) || !isset($_SESSION["user.id"])) {
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+	
+	if (!isset($_SESSION["user.id"])) {
+		echo "Session not started!";
 		return false;
 	}
+	
 	return true;
 }
 
