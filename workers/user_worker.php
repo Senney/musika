@@ -47,7 +47,7 @@ class UserWorker {
 			return -1;
 		}
 		
-		$verify = password_verify($password, $result["password"]);
+		$verify = password_verify($password, $password);
 		if ($verify) return 0;
 		else return -2;
 	}
