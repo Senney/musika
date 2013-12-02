@@ -58,10 +58,16 @@ class UserWorker {
 		}
 		
 		$link = get_mysqli_link();
-		$query = "INSERT INTO users VALUES(DEFAULT, ?, ?, ?)";
+		$query = "INSERT INTO users VALUES(DEFAULT, ?, ?, ?, '')";
 		$hash = password_hash($password, PASSWORD_DEFAULT);
+		echo $hash;
 		$params = array($username, $hash, $email);
 		$result = mysqli_prepared_query($link, $query, "sss", $params);
+		if (mysqli_error($link)) {
+			printf("Error: %s\n", mysqli_error($link));
+			die(1);
+		}
+
 		return 0;		
 	}
 }
