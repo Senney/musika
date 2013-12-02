@@ -4,6 +4,7 @@ require_once "../database/database.php";
 if (!isset($_POST["username"]) || !isset($_POST["password"])) {
 	// Redirect to login page with error.
 	header("Location: ../login.php");
+	exit(1);
 }
 
 $link = get_mysqli_link();
