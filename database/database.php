@@ -53,8 +53,8 @@ function mysqli_prepared_query($link,$sql,$typeDef = FALSE,$params = FALSE){
       $multiQuery = TRUE; 
     }  
     
-    if($typeDef){ 
-      $bindParams = array();    
+    $bindParams = array();   
+    if($typeDef){  
       $bindParamsReferences = array(); 
       $bindParams = array_pad($bindParams,(count($params,1)-count($params))/count($params),"");         
       foreach($bindParams as $key => $value){ 

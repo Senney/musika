@@ -1,9 +1,9 @@
 <?php
 
 class dbConfig {
-	public static $server = "162.220.240.181";
-	public static $username = "musika";
-	public static $password = "musika";
+	public static $server = "localhost";
+	public static $username = "root";
+	public static $password = "5*Hotel";
 	public static $database = "musika";
 }
 
