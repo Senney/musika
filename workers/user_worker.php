@@ -1,6 +1,6 @@
 <?php
 
-require_once "../libs/password_compat/lib/password.php"
+require_once "../libs/password_compat/lib/password.php";
 require_once "../database/database.php";
 
 class UserWorker {
