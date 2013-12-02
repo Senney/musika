@@ -4,6 +4,9 @@ require_once "database.config.php";
 
 error_reporting(E_ALL);
 
+/**
+ * Returns a link to the mysql server.
+ **/
 function get_mysqli_link() {
 	$link = mysqli_connect(dbConfig::$server, dbConfig::$username,
 		dbConfig::$password, dbConfig::$database);
@@ -12,17 +15,6 @@ function get_mysqli_link() {
 		exit(1);
 	}
 }
-
-function get_mysql_link() {
-	$link = mysql_connect(dbConfig::$server, dbConfig::$username,
-		dbConfig::$password, dbConfig::$database);
-	if (!$link) {
-		printf("Conenction failed: %s\n", mysql_error());
-		exit(1);
-	}
-}
-
-echo get_mysql_link();
 
 // Source: http://php.net/manual/en/mysqli.prepare.php
 // Author: User/Darren
