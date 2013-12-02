@@ -43,10 +43,10 @@ class UserWorker {
 		$query = "SELECT password FROM users WHERE username=?";
 		$params = array($username);
 		$result = mysqli_prepared_query($link, $query, "s", $params);
-		if (count($result) == 0) {
+		if (mysqli_error($link) || count($result) == 0) {
 			return -1;
 		}
-		
+		echo $result["password"];
 		$verify = password_verify($password, $result["password"]);
 		if ($verify) return 0;
 		else return -2;
