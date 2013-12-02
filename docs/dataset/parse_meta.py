@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import sqlite3
-import json 
 
 print "Opening connection to database."
 conn = sqlite3.connect("track_metadata.db")
@@ -17,9 +16,9 @@ while True:
 	obj = c.fetchone()
 	if obj == None:
 		break
-	songTitle = json.dumps(obj[1].encode("utf-8"))
-	albumTitle = json.dumps(obj[3].encode("utf-8"))
-	artistTitle = json.dumps(obj[6].encode("utf-8"))
+	songTitle = obj[1].encode("utf-8")
+	albumTitle = obj[3].encode("utf-8")
+	artistTitle = obj[6].encode("utf-8")
 	if (artistTitle not in artist):
 		query = "A %s"
 		fout.write(query % artistTitle + "\n")
