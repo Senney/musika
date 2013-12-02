@@ -22,7 +22,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-default navbar-right">
 				<?php
-				if (user_logged_in()) {
+				if (!user_logged_in()) {
 ?>
 				<li><a href="#">Login</a></li>
 				<li><a href="#">Register</a></li>
