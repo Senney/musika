@@ -25,7 +25,7 @@ class MusikaArtist {
 	}
 	
 	public function toWorkerArray() {
-		return array($name, $desc, $era, $genre);
+		return array($this->name, $this->desc, $this->era, $this->genre);
 	}
 }
 
