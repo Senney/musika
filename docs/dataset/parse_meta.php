@@ -19,8 +19,8 @@ function get_song($song_name, $album_name, $artist_name) {
 function add_song($song_name, $album_id, $artist_id) {
 	global $link;
 	
-	$query = "INSERT INTO song(title, description, AID) VALUES(?, ?, ?)";
-	mysqli_prepared_query($link, $query, "ssd", array($song_name, "None", $artist_id));
+	$query = "INSERT INTO song(title, AID) VALUES(?, ?, ?)";
+	mysqli_prepared_query($link, $query, "ssd", array($song_name, $artist_id));
 	if (mysqli_error($link)) die(mysqli_error($link));
 	
 	$id = mysqli_insert_id($link);
@@ -87,8 +87,9 @@ while (($buffer = fgets($file)) !== false) {
 	switch ($type) {
 	case "A":
 		// Artist definition.
-		$id = add_artist(trim($rest));
-		$artists[$rest] = $id;
+		$artist = trim($rest);
+		$id = add_artist($artist);
+		$artists[$artist] = $id;
 		break;
 	case "C":
 		// Artist-Album Relation.
