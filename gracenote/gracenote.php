@@ -2,7 +2,7 @@
 include_once("../php-gracenote/Gracenote.class.php");
 include_once("../database/database.php");
 
-$clientID  = "9595136-CDC6FD136B4193F856BA76A6F2773EFC"; // Put your Client ID here.
+$clientID  = "9595136"; // Put your Client ID here.
 $clientTag = "CDC6FD136B4193F856BA76A6F2773EFC"; // Put your Client Tag here.
 
 function get_db_id() {
