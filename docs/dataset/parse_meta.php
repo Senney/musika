@@ -16,20 +16,20 @@ function get_song($song_name, $album_name, $artist_name) {
 	return $result[0];
 }
 
-function add_song($song_name, $album_name, $artist_name) {
-	$artist = get_artist($artist_name);
-	$album = get_album($album_name, $artist_name);
+function add_song($song_name, $album_id, $artist_id) {
 	global $link;
 	
 	$query = "INSERT INTO song(title, description, AID) VALUES(?, ?, ?)";
-	mysqli_prepared_query($link, $query, "ssd", array($song_name, "None", $artist["artistId"]));
+	mysqli_prepared_query($link, $query, "ssd", array($song_name, "None", $artist_id));
 	if (mysqli_error($link)) die(mysqli_error($link));
 	
 	$id = mysqli_insert_id($link);
 	$query = "INSERT INTO albumsongs VALUES(?, ?)";
-	mysqli_prepared_query($link, $query, "dd", array($album["albumID"],
+	mysqli_prepared_query($link, $query, "dd", array($album_id,
 		$id));
 	if (mysqli_error($link)) die(mysqli_error($link));
+	return $id;
+	
 }
 
 function get_album($album_name, $artist_name) {
@@ -42,18 +42,18 @@ function get_album($album_name, $artist_name) {
 	return $res[0];
 }
 
-function add_album($album_name, $artist_name) {
-	$artist = get_artist($artist_name);
+function add_album($album_name, $artist_id) {
 	global $link;
 	$query = "INSERT INTO album(name) VALUES(?)";
 	mysqli_prepared_query($link, $query, "s", array($album_name));
 	if (mysqli_error($link)) die(mysqli_error($link));
-	
 	$id = mysqli_insert_id($link);
 	$query = "INSERT INTO albumcontributor VALUES(?, ?)";
-	$params = array($artist["artistId"], $id);
+	$params = array($artist_id, $id);
 	mysqli_prepared_query($link, $query, "dd", $params);
 	if (mysqli_error($link)) die(mysqli_error($link));
+	
+	return $id;
 }
 
 function get_artist($artist_name) {
@@ -70,7 +70,11 @@ function add_artist($artist_name) {
 	$params = array($artist_name);
 	mysqli_prepared_query($link, $query, "s", $params);
 	if (mysqli_error($link)) die(mysqli_error($link));
+	return mysqli_insert_id($link);
 }
+
+$artists = array();
+$albums = array();
 
 $file = fopen("data.sql", "r");
 if (!$file) die("Unable to open data file.");
@@ -81,11 +85,8 @@ while (($buffer = fgets($file)) !== false) {
 	switch ($type) {
 	case "A":
 		// Artist definition.
-		add_artist($rest);
-		break;
-	case "B":
-		// Album definition.
-		// WE can ignore this oen, actually.
+		$id = add_artist($rest);
+		$artists[$rest] = $id;
 		break;
 	case "C":
 		// Artist-Album Relation.
@@ -94,7 +95,8 @@ while (($buffer = fgets($file)) !== false) {
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
 		$album = $rest;
-		add_album($album, $artist);
+		$id = add_album($album, $artists[$artist]);
+		$albums[$album] = $id;
 		break;
 	case "S":
 		$song = $rest;
@@ -104,7 +106,7 @@ while (($buffer = fgets($file)) !== false) {
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
 		$artist = $rest;
-		add_song($song, $album, $artist);
+		add_song($song, $albums[$album], $artists[$artist]);
 		break;
 	}
 }
