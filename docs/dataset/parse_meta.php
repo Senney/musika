@@ -79,7 +79,9 @@ $albums = array();
 $file = fopen("data.sql", "r");
 if (!$file) die("Unable to open data file.");
 
-while (($buffer = fgets($file)) !== false) {
+$count = 0;
+$next = 10000;
+while (($buffer = fgets($file)) !== false) {	
 	$type = substr($buffer, 0, 1);
 	$rest = substr($buffer, 2);
 	switch ($type) {
@@ -99,6 +101,11 @@ while (($buffer = fgets($file)) !== false) {
 		$albums[$album] = $id;
 		break;
 	case "S":
+		$count++;
+		if ($count > $next) {
+			echo "Done importing " . $count . " songs.";
+			$next = $next + 10000;
+		}
 		$song = $rest;
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
