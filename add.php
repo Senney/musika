@@ -62,9 +62,8 @@ require_once "./common/common.php";
 					</div>
 					<div class="panel-body">
 						<h4>Search Results:</h4>
-						<ul>
-							<li>Song Result 1</li>
-							<li>Song Result 2</li>
+						<ul class="search-result">
+							<li>No Results Yet!</li>
 						</ul>
 					</div>
 				</div>
