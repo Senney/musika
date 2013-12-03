@@ -8,7 +8,7 @@ if (!isset($_GET["song_name"])) {
 
 $song = $_GET["song_name"] + "%";
 $worker = new SongWorker();
-$songs = $worker->findSongByName($song);
+$songs = $worker->findSongName($song);
 
 die(json_encode($songs));
 

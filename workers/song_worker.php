@@ -7,7 +7,7 @@ class SongWorker {
 		$query = "SELECT * FROM song JOIN (albumsongs JOIN album) " .
 			"WHERE title = ?";
 		$result = mysqli_prepared_query($link, $query, "s",
-			array(song_name));
+			array($song_name));
 		return $result;
 	}
 }
