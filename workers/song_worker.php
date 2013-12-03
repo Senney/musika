@@ -4,6 +4,7 @@ require_once "../database/database.php";
 class SongWorker {
 	public function findSongName($song_name) {
 		$link = get_mysqli_link();
+		echo "Getting song: " . $song_name;
 		$query = "SELECT * FROM song JOIN (albumsongs JOIN album) " .
 			"WHERE title = ?";
 		$result = mysqli_prepared_query($link, $query, "s",

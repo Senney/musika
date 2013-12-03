@@ -6,7 +6,7 @@ if (!isset($_GET["song_name"])) {
 	die("-1");
 }
 
-$song = $_GET["song_name"] + "%";
+$song = $_GET["song_name"] . "%";
 $worker = new SongWorker();
 $songs = $worker->findSongName($song);
 
