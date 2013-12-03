@@ -1,5 +1,5 @@
 <?php
-require_once "../database/database.php";
+
 require_once "../workers/song_worker.php";
 
 if (!isset($_GET["song_name"])) {

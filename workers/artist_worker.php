@@ -3,7 +3,17 @@ require_once "../database/database.php";
 
 class ArtistWorker {
 	public function getArtist($artistId) {
-		
+		$link = get_mysqli_link();
+		$query = "SELECT * FROM artist WHERE artistId = ?";
+		$result = mysqli_prepared_query($link, $query, "d", array($artistId));
+		return $result[0];
+	}
+	
+	public function getArtistName($name) {
+		$link = get_mysqli_link();
+		$query = "SELECT * FROM artist WHERE name = ?";
+		$result = mysqli_prepared_query($link, $query, "d", array($name));
+		return $result[0];		
 	}
 	
 	/**
