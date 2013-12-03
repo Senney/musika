@@ -87,16 +87,16 @@ while (($buffer = fgets($file)) !== false) {
 	switch ($type) {
 	case "A":
 		// Artist definition.
-		$id = add_artist($rest);
+		$id = add_artist(trim($rest));
 		$artists[$rest] = $id;
 		break;
 	case "C":
 		// Artist-Album Relation.
 		// 2 part relation.
-		$artist = $rest;
+		$artist = trim($rest);
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
-		$album = $rest;
+		$album = trim($rest);
 		$id = add_album($album, $artists[$artist]);
 		$albums[$album] = $id;
 		break;
@@ -106,13 +106,13 @@ while (($buffer = fgets($file)) !== false) {
 			echo "Done importing " . $count . " songs.";
 			$next = $next + 10000;
 		}
-		$song = $rest;
+		$song = trim($rest);
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
-		$album = $rest;
+		$album = trim($rest);
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
-		$artist = $rest;
+		$artist = trim($rest);
 		add_song($song, $albums[$album], $artists[$artist]);
 		break;
 	}
