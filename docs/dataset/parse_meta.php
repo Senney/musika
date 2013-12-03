@@ -19,8 +19,8 @@ function get_song($song_name, $album_name, $artist_name) {
 function add_song($song_name, $album_id, $artist_id) {
 	global $link;
 	
-	$query = "INSERT INTO song(title, AID) VALUES(?, ?, ?)";
-	mysqli_prepared_query($link, $query, "ssd", array($song_name, $artist_id));
+	$query = "INSERT INTO song(title, AID) VALUES(?, ?)";
+	mysqli_prepared_query($link, $query, "sd", array($song_name, $artist_id));
 	if (mysqli_error($link)) die(mysqli_error($link));
 	
 	$id = mysqli_insert_id($link);
