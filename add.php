@@ -10,6 +10,7 @@ require_once "./common/common.php";
         <?php
         load_bootstrap_css();
         ?>
+        <script src="js/add_song.js"></script>
     </head>
     <body>
 		<?php
@@ -20,13 +21,13 @@ require_once "./common/common.php";
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h3>Add a Song to your Library</h3>
-						<h5>Click a result from the auto-populated search results to fill in the form.</h5>
+						<h5>Start typing a song name to auto-populate the search results.</h5>
 						<form class="form form-add-song" role="form" method="handlers/add_song_handler.php" />
 							<div class="row">
 								<div class="col-xs-9 col-md-9">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-music"></span></span>
-										<input type="text" name="song-name" class="form-control" placeholder="Song Title" required autofocus />
+										<input type="text" id="song-name" name="song-name" class="form-control" placeholder="Song Title" required autofocus />
 									</div>
 								</div>
 							</div>
