@@ -1,6 +1,6 @@
 
 $(function() {
-	$("song-name").change(function() {
+	$("#song-name").on('input', function() {
 		alert("Changing!");
 	});
 });
