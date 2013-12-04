@@ -16,7 +16,7 @@ function handleSongAjax(data) {
     console.log(data);
     obj = $.parseJSON(data);
     if (obj.error != undefined) {
-         //alert("TImeout " + obj.error); 
+         $("#song-search-result").append("<li>Please wait a moment then search again.</li>");
          return;
     }
     var items = [];
@@ -24,9 +24,12 @@ function handleSongAjax(data) {
         var element = "<li>" + data.title +' - '+data.album+' by '+data.artist+'</li>';
         items.push(element);
     });
-    $("#song-search-result").empty();
-    $("#song-search-result").append(items.join(''));
-
+    if (items.length == 0) {
+		$("#song-search-result").append("<li>No results found.</li>");
+	} else {
+		$("#song-search-result").empty();
+		$("#song-search-result").append(items.join(''));
+	}
 }
 
 var typingTimer;
