@@ -14,9 +14,14 @@ $(function() {
 				type: "GET",
 				data: {song_name: val}
 			}).done(function(msg) {
-				$.each(msg, function(i, data) {
-					console.log(data);
+				obj = $.parseJSON(msg);
+				var items = [];
+				$.each(obj, function(i, data) {
+					var element = "<li>" + data.title +' - '+data.name+'</li>';
+					items.push(element);
 				});
+				$("#song-search-result").empty();
+				$("#song-search-result").append(items.join(''));
 			});
 		}
 	});
