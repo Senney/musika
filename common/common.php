@@ -28,6 +28,16 @@ function safe_session_start() {
 	}
 }
 
+function keys_exist($array, $elements) {
+	foreach ($elements as $e) {
+		if (!isset($array[$e])) {
+			return false;
+		}
+	}
+	
+	return true;
+}
+
 function user_logged_in() {
 	if (!isset($_SESSION)) {
 		session_start();
