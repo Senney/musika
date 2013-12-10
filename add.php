@@ -22,7 +22,7 @@ require_once "./common/common.php";
 					<div class="panel-body">
 						<h3>Add a Song to your Library</h3>
 						<h5>Type all or part of song details into the fields below, and view the search results below.</h5>
-						<form class="form form-add-song" role="form" method="handlers/add_song_handler.php" />
+						<form class="form form-add-song" role="form" method="POST" action="handlers/add_song_handler.php" />
 							<div class="row">
 								<div class="col-xs-9 col-md-9">
 									<div class="input-group">
