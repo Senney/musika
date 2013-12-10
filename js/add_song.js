@@ -15,6 +15,7 @@ function searchSong(song_search) {
 function handleSongAjax(data) {
     console.log(data);
     obj = $.parseJSON(data);
+    $("#song-search-result").empty();
     if (obj.error != undefined) {
          $("#song-search-result").append("<li>Please wait a moment then search again.</li>");
          return;
@@ -27,16 +28,22 @@ function handleSongAjax(data) {
     if (items.length == 0) {
 		$("#song-search-result").append("<li>No results found.</li>");
 	} else {
-		$("#song-search-result").empty();
 		$("#song-search-result").append(items.join(''));
 	}
 }
 
 var typingTimer;
-var doneTypingInterval = 1000;
+var doneTypingInterval = 300;
 $(function() {
 	var song_input = $("#song-name");
-    song_input.keyup(function() {
+    song_input.keyup(function(event) {
+        // Ensure that we don't run the function on non-character
+        // keypresses.
+        var c = String.fromCharCode(event.keyCode);
+        if (!c.match(/[\w\d]/)) {
+            return;
+        }
+
         clearTimeout(typingTimer);
         if (song_input.val) {
             typingTimer = setTimeout(function() {

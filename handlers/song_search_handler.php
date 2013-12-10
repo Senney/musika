@@ -22,7 +22,7 @@ if (isset($_SESSION["last_query"]) &&
 
 $_SESSION["last_query"] = time();
 
-$song = $_GET["song_name"] . "%";
+$song = '%' . $_GET["song_name"] . "%";
 $worker = new SongWorker();
 $songs = $worker->findSongName($song);
 foreach ($songs as &$s) {
