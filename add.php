@@ -35,13 +35,13 @@ require_once "./common/common.php";
 								<div class="col-xs-3 col-md-3">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-										<input type="text" name="artist-name" class="form-control" placeholder="Artist Name" />
+										<input type="text" id="artist-name" name="artist-name" class="form-control" placeholder="Artist Name" />
 									</div>
 								</div>
 								<div class="col-xs-3 col-md-3">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-headphones"></span></span>
-										<input type="text" name="album-name" class="form-control" placeholder="Album Name" />
+										<input type="text" id="album-name" name="album-name" class="form-control" placeholder="Album Name" />
 									</div>
 								</div>
 								<div class="col-xs-3 col-md-3">

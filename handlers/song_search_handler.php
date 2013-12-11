@@ -13,20 +13,13 @@ if (!isset($_GET["song_name"])) {
 	die("-1");
 }
 
-/*
-if (isset($_SESSION["last_query"]) && 
-    !empty($_SESSION["last_query"]) && 
-    time() - $_SESSION["last_query"] <= $MIN_QUERY_TIME)
-{
-	die('{"error":"'.$_SESSION["last_query"].'"}');
-}
-*/
-
 $_SESSION["last_query"] = time();
 
 $song = '%' . $_GET["song_name"] . "%";
+$artist = '%' . $_GET["artist_name"] . '%';
+$album = '%' . $_GET["album_name"] . '%';
 $worker = new SongWorker();
-$songs = $worker->findSongName($song);
+$songs = $worker->findSongArtistAlbumName($song, $artist, $album);
 foreach ($songs as &$s) {
     $artistWorker = new ArtistWorker();
     $albumWorker = new AlbumWorker();
