@@ -81,40 +81,52 @@ if (!$file) die("Unable to open data file.");
 
 $count = 0;
 $next = 10000;
+$line = 0;
 while (($buffer = fgets($file)) !== false) {	
+	$line++;
 	$type = substr($buffer, 0, 1);
 	$rest = substr($buffer, 2);
 	switch ($type) {
 	case "A":
 		// Artist definition.
 		$artist = trim($rest);
+		if (isset($artists[strtolower($artist)])) continue;
 		$id = add_artist($artist);
-		$artists[$artist] = $id;
+		$artists[strtolower($artist)] = $id;
+		$albums[strtolower($artist)] = array();
 		break;
 	case "C":
 		// Artist-Album Relation.
-		// 2 part relation.
+		// 2 part relation.		
 		$artist = trim($rest);
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
 		$album = trim($rest);
-		$id = add_album($album, $artists[$artist]);
-		$albums[$album] = $id;
+		$id = add_album($album, $artists[strtolower($artist)]);
+		$albums[strtolower($artist)][strtolower($album)] = $id;
+		$line++;
 		break;
 	case "S":
 		$count++;
-		if ($count > $next) {
+		if ($count == $next) {
 			echo "Done importing " . $count . " songs.";
 			$next = $next + 10000;
 		}
 		$song = trim($rest);
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
-		$album = trim($rest);
+		$artist = trim($rest);
 		$buffer = fgets($file);
 		$rest = substr($buffer, 2);
-		$artist = trim($rest);
-		add_song($song, $albums[$album], $artists[$artist]);
+		$album = trim($rest);
+		
+		$albumid = $albums[strtolower($artist)][strtolower($album)];
+		$artistid = $artists[strtolower($artist)];
+		if (!isset($albumid)) {
+			die("ERROR: Line " . $line . ".");
+		}
+		add_song($song, $albumid, $artistid);
+		$line += 2;
 		break;
 	}
 }

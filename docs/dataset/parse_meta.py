@@ -22,13 +22,13 @@ while True:
 	if (artistTitle not in artist):
 		query = "A %s"
 		fout.write(query % artistTitle + "\n")
-		artist[artistTitle] = 1	
-	if ((albumTitle not in album) or (album[albumTitle] != artistTitle)):
+		artist[artistTitle.lower()] = 1	
+	if ((albumTitle.lower() not in album) or (album[albumTitle.lower()] != artistTitle.lower())):
 		query = "B %s"
 		fout.write(query % albumTitle + "\n")
 		query = "C %s\nC %s"
 		fout.write(query % (artistTitle, albumTitle) + "\n")
-		album[albumTitle] = artistTitle 
+		album[albumTitle.lower()] = artistTitle.lower()
 	query = "S %s\nS %s"
 	fout.write(query % (songTitle, artistTitle) + "\n")
 	query = "Z %s\nZ %s"
