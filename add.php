@@ -48,9 +48,9 @@ require_once "./common/common.php";
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-floppy-disk"></span></span>				
 										<select class="form-control" name="media-type">
-											<option value="digital">Digital</option>
-											<option value="cd">CD</option>
-											<option value="record">Record</option>
+											<option value="1">Digital</option>
+											<option value="2">CD</option>
+											<option value="3">Record</option>
 										</select>	
 									</div>			
 								</div>	
