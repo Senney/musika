@@ -38,6 +38,11 @@ function keys_exist($array, $elements) {
 	return true;
 }
 
+function usrid() {
+	if (!user_logged_in()) return -1;
+	return $_SESSION["user.id"];
+}
+
 function user_logged_in() {
 	if (!isset($_SESSION)) {
 		session_start();
