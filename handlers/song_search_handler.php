@@ -13,12 +13,14 @@ if (!isset($_GET["song_name"])) {
 	die("-1");
 }
 
+/*
 if (isset($_SESSION["last_query"]) && 
     !empty($_SESSION["last_query"]) && 
     time() - $_SESSION["last_query"] <= $MIN_QUERY_TIME)
 {
 	die('{"error":"'.$_SESSION["last_query"].'"}');
 }
+*/
 
 $_SESSION["last_query"] = time();
 
@@ -30,7 +32,7 @@ foreach ($songs as &$s) {
     $albumWorker = new AlbumWorker();
     $artistInfo = $artistWorker->getArtist($s["AID"]);
     $albumInfo = $albumWorker->getAlbumSongID($s["SID"]);
-    $s["album"] = $albumInfo[0]["name"];
+	$s["album"] = $albumInfo["name"];
     $s["artist"] = $artistInfo["name"];
 }
 

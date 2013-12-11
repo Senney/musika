@@ -8,8 +8,38 @@ class AlbumWorker {
                  "albumsongs.albumId = album.albumID WHERE " .
                  "albumsongs.songId = ?";
         $result = mysqli_prepared_query($link, $query, "d", array($songId));
-        return $result;
-    }    
+		if (empty($result)) return false;
+		
+        return $result[0];
+    }
+	
+	function getAlbumArtist($title, $artistId) {
+		$link = get_mysqli_link();
+		$query = "SELECT * FROM album JOIN albumcontributor ON " . 
+		         "album.albumID = albumcontributor.albumId WHERE " . 
+				 "album.name = ? AND albumcontributor.artistId = ?";
+		$params = array($title, $artistId);
+		$result = mysqli_prepared_query($link, $query, "sd", $params);
+		if (empty($result)) return false;
+		
+		return $result[0];
+	}
+	
+	function addAlbum($title, $artist_array) {
+		// Check if the album exists already.
+		
+		$link = get_mysqli_link();
+		$query = "INSERT INTO album(`name`) VALUES(?)";
+		$params = array($title);
+		mysqli_prepared_query($link, $query, "s", $params);
+		if (mysqli_error($link)) die("Unable to create album " . $title);
+		foreach ($artist_array as $a) {
+			$query = "INSERT INTO albumcontributor VALUES(?, ?)";
+			$params = array(mysqli_insert_id(), $a);
+			mysqli_prepared_query($link, $query, "dd", $params);
+			if (mysqli_error($link)) die("Unable to add artist to album " . $a);
+		}
+	}
 }
 
 ?>

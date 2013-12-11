@@ -12,7 +12,7 @@ class ArtistWorker {
 	public function getArtistName($name) {
 		$link = get_mysqli_link();
 		$query = "SELECT * FROM artist WHERE name = ?";
-		$result = mysqli_prepared_query($link, $query, "d", array($name));
+		$result = mysqli_prepared_query($link, $query, "s", array($name));
 		return $result[0];		
 	}
 	
