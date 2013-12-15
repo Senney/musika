@@ -141,6 +141,16 @@ CREATE TABLE IF NOT EXISTS playlistrating(
 	
 	PRIMARY KEY (userId1, userId2, pId),
 	FOREIGN KEY (userId2) REFERENCES users(UserId),
-	FOREIGN KEY (userId1, pId) REFERENCES playlist(userId pId)
+	FOREIGN KEY (userId1, pId) REFERENCES playlist(userId, pId)
 );
+
+CREATE TABLE IF NOT EXISTS playlistshare(
+	userId1 INTEGER NOT NULL,
+	userId2 INTEGER NOT NULL,
+	pId INTEGER NOT NULL,
+	message TEXT,
 	
+	PRIMARY KEY (userId1, userId2, pId),
+	FOREIGN KEY (userId1, pId) REFERENCES playlist(userId, pId),
+	FOREIGN KEY (userId2) REFERENCES users(UserId)
+);
