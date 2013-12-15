@@ -55,6 +55,12 @@ function user_logged_in() {
 	return true;
 }
 
+function logged_in_redirect() {
+	if (!user_logged_in()) {
+		header("Location: /musika/login.php?error=-4");
+	}
+}
+
 // Start the session for all pages that include common.
 safe_session_start();
 
