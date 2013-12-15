@@ -113,3 +113,34 @@ CREATE TABLE IF NOT EXISTS albumsongs(
 	FOREIGN KEY (albumId) REFERENCES album(albumId),
 	FOREIGN KEY (songId) REFERENCES song(SID)
 );
+
+CREATE TABLE IF NOT EXISTS playlist(
+	userId INTEGER NOT NULL,
+	pId INTEGER NOT NULL,
+	name TEXT,
+
+	PRIMARY KEY (userId, pId),
+	FOREIGN KEY (userId) REFERENCES users(UserId)
+);
+
+CREATE TABLE IF NOT EXISTS playlistentry(
+	userId INTEGER NOT NULL,
+	pId INTEGER NOT NULL,
+	sId INTEGER NOT NULL,
+	
+	PRIMARY KEY (userId, pId, sId),
+	FOREIGN KEY (userId, pId) REFERENCES playlist(userId, pId),
+	FOREIGN KEY (sId) REFERENCES song(SID)
+);
+
+CREATE TABLE IF NOT EXISTS playlistrating(
+	userId1 INTEGER NOT NULL,
+	userId2 INTEGER NOT NULL,
+	pId INTEGER NOT NULL,
+	rating INTEGER NOT NULL,
+	
+	PRIMARY KEY (userId1, userId2, pId),
+	FOREIGN KEY (userId2) REFERENCES users(UserId),
+	FOREIGN KEY (userId1, pId) REFERENCES playlist(userId pId)
+);
+	
