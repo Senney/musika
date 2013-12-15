@@ -1,5 +1,18 @@
 <?php
-require_once "common/common.php"
+require_once "common/common.php";
+
+$error = null;
+$errmsg = array(
+	1 => "Registration successful. Please log in.",
+	-1 => "Login failed. Invalid username.",
+	-2 => "Login failed. Invalid password.",
+	-3 => "A required form parameter was not set.",
+	-4 => "You are required to log in to use this page."
+);
+if (isset($_GET["error"])) {
+	$error = $_GET["error"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +52,18 @@ require_once "common/common.php"
 									<i class="glyphicon glyphicon-share-alt"></i> Sign In
 								</button>
 							</form>
+							<br />
+<?php
+						if (isset($error)) {
+							if ($error < 0) $class = "alert-danger";
+							else $class = "alert-info";
+?>							
+							<div class="alert <?php echo $class; ?>">
+								<?php echo $errmsg[$error]; ?>
+							</div>
+<?php
+						}
+?>
 						</div>
 					</div>
 				</div>

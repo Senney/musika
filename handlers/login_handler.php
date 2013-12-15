@@ -4,7 +4,7 @@ require_once "../workers/user_worker.php";
 
 if (!isset($_POST["username"]) || !isset($_POST["password"])) {
 	// Redirect to login page with error.
-	header("Location: ../login.php?error=val");
+	header("Location: ../login.php?error=-3");
 	exit(1);
 }
 
