@@ -1,5 +1,7 @@
 <?php
 require_once "./common/common.php";
+
+logged_in_redirect();
 ?>
 
 <!DOCTYPE html>
