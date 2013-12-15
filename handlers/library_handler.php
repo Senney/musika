@@ -12,7 +12,7 @@ if ($type == "song") {
 	$returndata = array("head" => array("Title", "Artist", "Album"), "data" => array());
 	$songs = $worker->getUserSongData();
 	$returndata["data"] = $songs;
-	print_r($returndata);
+	die(json_encode($returndata));
 }
 
 ?>

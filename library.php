@@ -31,6 +31,9 @@ logged_in_redirect();
 								<button type="button" class="btn btn-default">Artist</button>
 							</div>
 						</div>
+						<div id="error">
+						
+						</div>
 						<table class="table table-hover">
 							<thead id="music-display-table-head">
 								

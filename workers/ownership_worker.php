@@ -23,7 +23,8 @@ class OwnershipWorker {
 		$query = "SELECT s.title AS songtitle, ar.name AS artistname, al.name AS albumname FROM ".
 				 "songownership AS so JOIN song AS s ON so.SID = s.SID " .
 				 "JOIN artist AS ar ON ar.artistId = s.AID JOIN albumsongs AS asongs ON asongs.songId = s.SID " .
-				 "JOIN album AS al ON al.albumID = asongs.albumId WHERE so.UID = ?";
+				 "JOIN album AS al ON al.albumID = asongs.albumId " .
+				 "WHERE so.UID = ?";
 		$link = get_mysqli_link();
 		$result = mysqli_prepared_query($link, $query, "d", array($this->uid));
 		return $result;
