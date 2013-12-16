@@ -19,6 +19,9 @@ require_once "./common/common.php";
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<h2>My Playlist</h2>
+					<table class="table table-hover">
+					
+					</table>
 				</div>
 			</div>
 		</div>
