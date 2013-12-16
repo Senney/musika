@@ -160,3 +160,17 @@ CREATE TABLE IF NOT EXISTS itunescache(
 	PRIMARY KEY (artistId),
 	FOREIGN KEY (artistId) REFERENCES artist(artistId)
 );
+
+CREATE TABLE IF NOT EXISTS songrating(
+	userId INTEGER NOT NULL,
+	songId INTEGER NOT NULL,
+	rating INTEGER NOT NULL,
+	
+	PRIMARY KEY(userId,songId),
+	FOREIGN KEY(userId) REFERENCES users(UserId),
+	FOREIGN KEY(songId) REFERENCES song(SID)
+
+
+);
+
+
