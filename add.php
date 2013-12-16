@@ -75,7 +75,7 @@ logged_in_redirect();
 					<div class="panel-body">
 						<h3>Add an Album to your Library</h3>
 						<h5>Click a result from the auto-populated search results to fill in the form.</h5>
-						<form class="form form-add-song" role="form" method="handlers/add_song_handler.php" />
+						<form class="form form-add-song" role="form" method="POST" action="handlers/add_song_handler.php" />
 							<div class="row">
 								<div class="col-xs-9 col-md-9">
 									<div class="input-group">
@@ -115,6 +115,27 @@ logged_in_redirect();
 							<li>Album Result 1</li>
 							<li>Album Result 2</li>
 						</ul>
+					</div>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3>Are We Missing Something?</h3>
+						<h5>Enter the name of an artist and we'll go find it for you.</h5>
+						<form class="form form-cache-artist" role="form" method="GET" action="handlers/cache_handler.php" />
+							<div class="row">
+								<div class="col-xs-9 col-md-9">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+										<input type="text" name="artist-name" class="form-control" placeholder="Artist Name" />
+									</div>
+								</div>
+								<div class="col-xs-3 col-md-3">
+									<button class="btn btn-success btn-block" type="submit">Load Data</button>
+								</div>					
+							</div>
+						</form>
 					</div>
 				</div>				
 			</div>
