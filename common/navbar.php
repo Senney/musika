@@ -17,7 +17,6 @@
 				<li><a href="library.php">My Music</a></li>
 				<li><a href="add.php">Add New Music</a></li>
 				<li><a href="playlist.php">Playlists</a></li>
-				<li><a href="discover.php">Discover</a></li>
 				<li><a href="search.php">Search</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-default navbar-right">
