@@ -73,7 +73,7 @@ logged_in_redirect();
 			<div class="row">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<h3>Add an Album to your Library</h3>
+						<h3>Add an Album to your Library (Unimplemented)</h3>
 						<h5>Click a result from the auto-populated search results to fill in the form.</h5>
 						<form class="form form-add-song" role="form" method="POST" action="handlers/add_song_handler.php" />
 							<div class="row">
@@ -122,7 +122,7 @@ logged_in_redirect();
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h3>Are We Missing Something?</h3>
-						<h5>Enter the name of an artist and we'll go find it for you.</h5>
+						<h5>Enter the name of an artist and we'll go pull in some more data for you.</h5>
 						<form class="form form-cache-artist" role="form" method="GET" action="handlers/cache_handler.php" />
 							<div class="row">
 								<div class="col-xs-9 col-md-9">
@@ -136,6 +136,16 @@ logged_in_redirect();
 								</div>					
 							</div>
 						</form>
+						<?php
+						if (isset($_GET["import"])) {
+						?>
+						<br />
+						<div class="alert alert-info">
+							Thank you! We imported <?=$_GET["import"]?> songs!
+						</div>
+						<?php
+						}
+						?>
 					</div>
 				</div>				
 			</div>

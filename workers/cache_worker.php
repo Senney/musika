@@ -36,13 +36,15 @@ class CacheWorker {
 			$artist = $artist_worker->getArtist($id);
 		}
 
+		$count = 0;
 		foreach ($albums as $alb) {
 			if ($alb["wrapperType"] == "collection") {
-				$this->cache_album($alb, $artist["artistId"], $itunes);
+				$count += $this->cache_album($alb, $artist["artistId"], $itunes);
 			}
 		}
 		
 		$this->set_cache($artist["artistId"]);
+		return $count;
 	}
 	
 	public function cache_album($alb, $aid, $itunes) {
@@ -57,13 +59,14 @@ class CacheWorker {
 		}
 		
 		$songs = $itunes->get_album_songs($alb["collectionId"]);
+		$count = 0;
 		foreach ($songs as $song) {
 			if ($song["wrapperType"] == "track") {
-				$this->cache_song($song, $album["albumID"], $aid, $album_worker);
+				$count += $this->cache_song($song, $album["albumID"], $aid, $album_worker);
 			}
 		}
 		
-		return $album;
+		return $count;
 	}
 	
 	public function cache_song($song, $albid, $aid, $album_worker) {
@@ -71,11 +74,14 @@ class CacheWorker {
 		
 		$sname = $song["trackName"];
 		$cached = $song_worker->findSongArtistName($sname, $aid);
+		$ret = 0;
 		if (!$cached) {
 			$sid = $song_worker->addSong($sname, $aid);
 			$cached = $song_worker->getSong($sid);
+			$ret = 1;
 		}
 		$album_worker->addSong($albid, $cached["SID"]);
+		return $ret;
 	}
 }
 
