@@ -11,12 +11,14 @@ class PlaylistWorker{
 	public function getPlaylist($pId){
 		$link = get_mysqli_link();
 		$query = "SELECT * FROM playlist WHERE playlist.pId = ?"
-		result = mysqli_prepared_query($link, $query, "d", array($pId));
+		$result = mysqli_prepared_query($link, $query, "d", array($pId));
+		return = $result;
 	}
 
-
-
-
+	public function getPlaylistSongs($pId){
+	
+	
+	}
 
 }
 ?>
