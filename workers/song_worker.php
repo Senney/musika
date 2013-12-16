@@ -1,7 +1,17 @@
 <?php
-require_once "../database/database.php";
+require_once __DIR__ . "/../database/database.php";
 
 class SongWorker {
+	public function getSong($song_id) {
+		$query = "SELECT * FROM song WHERE SID = ?";
+		$link = get_mysqli_link();
+		$data = mysqli_prepared_query($link, $query, "d", array($song_id));
+		if (mysqli_error($link)) {
+			return -1;
+		}
+		return $data;
+	}
+
 	public function findSongName($song_name, $limit=10) {
 		$link = get_mysqli_link();
 		
