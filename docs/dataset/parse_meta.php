@@ -153,4 +153,6 @@ while (($buffer = fgets($file)) !== false) {
 	}
 }
 
+require_once "./fix_duplicate_album.php";
+
 ?>
