@@ -6,10 +6,10 @@ class SongWorker {
 		$query = "SELECT * FROM song WHERE SID = ?";
 		$link = get_mysqli_link();
 		$data = mysqli_prepared_query($link, $query, "d", array($song_id));
-		if (mysqli_error($link)) {
-			return -1;
+		if (mysqli_error($link) || empty($data)) {
+			return false;
 		}
-		return $data;
+		return $data[0];
 	}
 
 	public function findSongName($song_name, $limit=10) {
@@ -19,6 +19,15 @@ class SongWorker {
 		$result = mysqli_prepared_query($link, $query, "sd",
 			array($song_name, $limit));
 		return $result;
+	}
+	
+	public function findSongArtistName($song_name, $artist_id) {
+		$link = get_mysqli_link();
+		$query = "SELECT * FROM song WHERE title = ? AND AID = ?";
+		$params = array($song_name, $artist_id);
+		$result = mysqli_prepared_query($link, $query, "sd", $params);
+		if (empty($result)) return false;
+		return $result[0];
 	}
 	
 	public function findSongArtistAlbum($song_name, $artist_id, $album_id) {
@@ -63,6 +72,14 @@ class SongWorker {
 		$result = mysqli_prepared_query($link, $query, $parstr, $params);	
 		
 		return $result;
+	}
+	
+	public function addSong($title, $artist_id, $desc = null, $genre = null) {
+		$link = get_mysqli_link();
+		$query = "INSERT INTO song VALUES(DEFAULT, ?, ?, ?, ?)";
+		$params = array($title, $desc, $artist_id, $genre);
+		mysqli_prepared_query($link, $query, "ssdd", $params);
+		return mysqli_insert_id($link);
 	}
 }
 

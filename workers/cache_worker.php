@@ -1,20 +1,81 @@
 <?php
 
+require_once __DIR__ . "/album_worker.php";
+require_once __DIR__ . "/artist_worker.php";
+require_once __DIR__ . "/song_worker.php";
 require_once __DIR__ . "/itunes_worker.php";
 
 class CacheWorker {
+	public function should_cache($artist_name) {
+		$link = get_mysqli_link();
+		$query = "SELECT ic.* FROM itunescache AS ic ".
+		"JOIN artist AS ar ON ic.artistId = ar.artistId ".
+		"WHERE ar.name = ?";
+		$res = mysqli_prepared_query($link, $query, "s", array($artist_name));
+		return empty($res);
+	}
+	
+	private function set_cache($artist_id) {
+		$link = get_mysqli_link();
+		$query = "INSERT INTO itunescache VALUES(?)";
+		mysqli_prepared_query($link, $query, "d", array($artist_id));
+	}
+
 	public function cache_artist($artist_name) {
 		$itunes = new iTunesWorker();
 		$albums = $itunes->get_artist_albums($artist_name);
 		if ($albums == -1) {
 			return -1;
 		}
-		print_r($albums);
-		die();
+		
+		$artist_worker = new ArtistWorker();
+		$artist = $artist_worker->getArtistName($albums[0]["artistName"]);
+		if (!$artist) {
+			$a = $albums[0];
+			$id = $artist_worker->saveArtist($a["artistName"]);
+			$artist = $artist_worker->getArtist($id);
+		}
+
+		foreach ($albums as $alb) {
+			if ($alb["wrapperType"] == "collection") {
+				$this->cache_album($alb, $artist["artistId"], $itunes);
+			}
+		}
+		
+		$this->set_cache($artist["artistId"]);
 	}
 	
-	public function cache_album($album_name, $artist_name) {
+	public function cache_album($alb, $aid, $itunes) {
+		// Cache the album.
+		$album_worker = new AlbumWorker();
+		$aname = $alb["collectionName"];
+		$album = $album_worker->getAlbumArtist($aname, $aid);
+		if (!$album) {
+			$date = date_parse($alb["releaseDate"])["year"];
+			$albid = $album_worker->addAlbum($aname, $aid, $date);
+			$album = $album_worker->getAlbum($albid);
+		}
+		
+		$songs = $itunes->get_album_songs($alb["collectionId"]);
+		foreach ($songs as $song) {
+			if ($song["wrapperType"] == "track") {
+				$this->cache_song($song, $album["albumID"], $aid, $album_worker);
+			}
+		}
+		
+		return $album;
+	}
 	
+	public function cache_song($song, $albid, $aid, $album_worker) {
+		$song_worker = new SongWorker();
+		
+		$sname = $song["trackName"];
+		$cached = $song_worker->findSongArtistName($sname, $aid);
+		if (!$cached) {
+			$sid = $song_worker->addSong($sname, $aid);
+			$cached = $song_worker->getSong($sid);
+		}
+		$album_worker->addSong($albid, $cached["SID"]);
 	}
 }
 

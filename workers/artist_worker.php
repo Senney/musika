@@ -13,12 +13,23 @@ class ArtistWorker {
 		$link = get_mysqli_link();
 		$query = "SELECT * FROM artist WHERE name = ?";
 		$result = mysqli_prepared_query($link, $query, "s", array($name));
+		if (empty($result)) return false;
 		return $result[0];		
+	}
+	
+	
+	public function saveArtist($name, $desc=null, $era=null, $genre=null) {
+		$link = get_mysqli_link();
+		$query = "INSERT INTO artist VALUES(DEFAULT, ?, ?, ?, ?)";
+		$params = array($name, $desc, $era, $genre);
+		mysqli_prepared_query($link, $query, "ssdd", $params);
+		if (mysqli_error($link)) die(mysqli_error($link));
+		return mysqli_insert_id($link);
 	}
 	
 	/**
 	 * Expects and artist object from the models/ directory.
-	 **/
+
 	public function saveArtist($artist) {
 		if (!$artist || empty($artist->name)) {
 			return -1;
@@ -35,6 +46,7 @@ class ArtistWorker {
 		
 		return 0;
 	}
+		 **/
 }
 
 ?>

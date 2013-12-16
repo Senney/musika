@@ -34,6 +34,18 @@ class AlbumWorker {
 		return $result;
 	}
 	
+	function getAlbumArtistName($title, $artist) {
+		$link = get_mysqli_link();
+		$query = "SELECT al.albumID FROM album AS al" .
+		"JOIN albumcontributor AS ac ON ac.albumId = al.albumID " . 
+		"JOIN artist AS ar ON ar.artistId = ac.artistId " . 
+		"WHERE al.name = ? AND ar.name = ?";
+		$params = array($title, $artist);
+		$result = mysqli_prepared_query($link, $query, "ss", $params);
+		if (empty($result)) return false;
+		return $result[0];
+	}
+	
 	function getAlbumArtist($title, $artistId) {
 		$link = get_mysqli_link();
 		$query = "SELECT * FROM album JOIN albumcontributor ON " . 
@@ -46,6 +58,25 @@ class AlbumWorker {
 		return $result[0];
 	}
 	
+	function addSong($alid, $sid) {
+		$link = get_mysqli_link();
+		$query = "INSERT INTO albumsongs VALUES(?, ?)";
+		$params = array($alid, $sid);
+		mysqli_prepared_query($link, $query, "dd", $params);
+	}
+	
+	function addAlbum($title, $artistid, $year=null, $genre=null) {
+		$link = get_mysqli_link();
+		$query = "INSERT INTO album VALUES(DEFAULT, ?, ?, ?)";
+		$params = array($title, $year, $genre);
+		mysqli_prepared_query($link, $query, "sdd", $params);
+		if (mysqli_error($link)) die(mysqli_error($link));
+		$retid = mysqli_insert_id($link);
+		$acq = "INSERT INTO albumcontributor VALUES(?, ?)";
+		mysqli_prepared_query($link, $acq, "dd", array($artistid, $retid));
+		return $retid;
+	}
+	/*
 	function addAlbum($title, $artist_array) {
 		// Check if the album exists already.
 		
@@ -61,6 +92,7 @@ class AlbumWorker {
 			if (mysqli_error($link)) die("Unable to add artist to album " . $a);
 		}
 	}
+	*/
 }
 
 ?>
