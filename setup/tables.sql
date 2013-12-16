@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS playlist(
 	pId INTEGER NOT NULL,
 	name TEXT,
 
-	PRIMARY KEY (userId, pId),
+	PRIMARY KEY (pId),
 	FOREIGN KEY (userId) REFERENCES users(UserId)
 );
 
@@ -129,7 +129,8 @@ CREATE TABLE IF NOT EXISTS playlistentry(
 	sId INTEGER NOT NULL,
 	
 	PRIMARY KEY (userId, pId, sId),
-	FOREIGN KEY (userId, pId) REFERENCES playlist(userId, pId),
+	FOREIGN KEY (userId) REFERENCES users(UserId),
+	FOREIGN KEY (pId) REFERENCES playlist(pId),
 	FOREIGN KEY (sId) REFERENCES song(SID)
 );
 
@@ -140,8 +141,9 @@ CREATE TABLE IF NOT EXISTS playlistrating(
 	rating INTEGER NOT NULL,
 	
 	PRIMARY KEY (userId1, userId2, pId),
+	FOREIGN KEY (userId1) REFERENCES users(UserId),
 	FOREIGN KEY (userId2) REFERENCES users(UserId),
-	FOREIGN KEY (userId1, pId) REFERENCES playlist(userId, pId)
+	FOREIGN KEY (pId) REFERENCES playlist(pId)
 );
 
 CREATE TABLE IF NOT EXISTS playlistshare(
@@ -151,6 +153,7 @@ CREATE TABLE IF NOT EXISTS playlistshare(
 	message TEXT,
 	
 	PRIMARY KEY (userId1, userId2, pId),
-	FOREIGN KEY (userId1, pId) REFERENCES playlist(userId, pId),
+	FOREIGN KEY (pId) REFERENCES playlist(pId),
+	FOREIGN KEY (userId1) REFERENCES users(UserId),
 	FOREIGN KEY (userId2) REFERENCES users(UserId)
 );

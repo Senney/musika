@@ -15,5 +15,12 @@ require_once "./common/common.php";
 		<?php
 		require_once "./common/navbar.php";
 		?>
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h2>My Playlist</h2>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
