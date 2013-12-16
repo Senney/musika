@@ -16,7 +16,7 @@ else {
 	if ($song_data == -1 || empty($song_data)) {
 		$errmsg = "Invalid song ID.";
 	} else {
-		$song_data = $song_data[0];
+		$song_data = $song_data;
 		$artist_data = $artist->getArtist($song_data["AID"]);
 		$album_data = $album->getAlbumsSongID($_GET["id"]);
 	}
