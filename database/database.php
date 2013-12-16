@@ -6,17 +6,22 @@ require_once "database.config.php";
 @ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
+$mysqli_link_resource = null;
+
 /**
  * Returns a link to the mysql server.
  **/
 function get_mysqli_link() {
-	$link = mysqli_connect(dbConfig::$server, dbConfig::$username,
-		dbConfig::$password, dbConfig::$database);
-	if (mysqli_connect_error()) {
-		printf("Connection failed: %s\n", mysqli_connect_error());
-		exit(1);
+	global $mysqli_link_resource;
+	if ($mysqli_link_resource == null) {
+		$mysqli_link_resource = mysqli_connect(dbConfig::$server, dbConfig::$username,
+			dbConfig::$password, dbConfig::$database);
+		if (mysqli_connect_error()) {
+			printf("Connection failed: %s\n", mysqli_connect_error());
+			exit(1);
+		}
 	}
-	return $link;
+	return $mysqli_link_resource;
 }
 
 // Source: http://php.net/manual/en/mysqli.prepare.php
