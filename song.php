@@ -2,9 +2,11 @@
 require_once "./common/common.php";
 require_once "./workers/song_worker.php";
 require_once "./workers/artist_worker.php";
+require_once "./workers/album_worker.php";
 
 $worker = new SongWorker();
 $artist = new ArtistWorker();
+$album = new AlbumWorker();
 
 if (!isset($_GET["id"])) {
 	$errmsg = "A song ID is required to view a song.";
@@ -12,8 +14,10 @@ if (!isset($_GET["id"])) {
 else {
 	$song_data = $worker->getSong($_GET["id"])[0];
 	$artist_data = $artist->getArtist($song_data["AID"]);
+	$album_data = $album->getAlbumsSongID($_GET["id"]);
 	print_r($song_data);
 	print_r($artist_data);
+	print_r($album_data);
 }
 
 ?>
@@ -74,6 +78,19 @@ else {
 									}
 									?></p>
 									<h4>Albums</h4>
+									<ul class="list-group">
+									<?php
+									foreach ($album_data as $album) {
+									?>
+										<li class="list-group-item">
+											<a href="album.php?id=<?=$album["albumId"];?>">
+												<?=$album["name"];?>
+											</a>
+										</li>
+									<?php
+									}
+									?>
+									</ul>
 								</div>
 							</div>
 						</div>

@@ -1,17 +1,31 @@
 <?php
-require_once "../database/database.php";
+require_once __DIR__ . "/../database/database.php";
 
 class AlbumWorker {
-    function getAlbumSongID($songId) {
-        $link = get_mysqli_link();
+	function getAlbumsSongId($songId) {
+		$link = get_mysqli_link();
         $query = "SELECT * FROM albumsongs JOIN album ON " .
                  "albumsongs.albumId = album.albumID WHERE " .
                  "albumsongs.songId = ?";
         $result = mysqli_prepared_query($link, $query, "d", array($songId));
 		if (empty($result)) return false;
 		
+		return $result;
+	}
+
+    function getAlbumSongID($songId) {
+		$result = getAlbumSongsId($songId);
         return $result[0];
     }
+	
+	function getAlbumSongs($albumId) {
+		$link = get_mysqli_link();
+		$query = "SELECT song.* FROM albumsongs JOIN song ON " . 
+				 "song.SID = albumsongs.songId " .
+				 "WHERE albumsongs.albumId = ?";
+		$result = mysqli_prepared_query($link, $query, "d", array($albumId));
+		return $result;
+	}
 	
 	function getAlbumArtist($title, $artistId) {
 		$link = get_mysqli_link();
