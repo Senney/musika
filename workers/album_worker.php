@@ -2,6 +2,13 @@
 require_once __DIR__ . "/../database/database.php";
 
 class AlbumWorker {
+	function getAlbum($albumId) {
+		$link = get_mysqli_link();
+		$query = "SELECT * FROM album WHERE albumID=?";
+		$result = mysqli_prepared_query($link, $query, "d", array($albumId));
+		return $result[0];
+	}
+
 	function getAlbumsSongId($songId) {
 		$link = get_mysqli_link();
         $query = "SELECT * FROM albumsongs JOIN album ON " .
@@ -13,8 +20,8 @@ class AlbumWorker {
 		return $result;
 	}
 
-    function getAlbumSongID($songId) {
-		$result = getAlbumSongsId($songId);
+    function getAlbumSongId($songId) {
+		$result = $this->getAlbumsSongId($songId);
         return $result[0];
     }
 	

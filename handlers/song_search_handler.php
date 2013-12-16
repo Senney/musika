@@ -19,13 +19,14 @@ $song = '%' . $_GET["song_name"] . "%";
 $artist = '%' . $_GET["artist_name"] . '%';
 $album = '%' . $_GET["album_name"] . '%';
 $worker = new SongWorker();
+$albumworker = new AlbumWorker();
 $songs = $worker->findSongArtistAlbumName($song, $artist, $album);
 foreach ($songs as &$s) {
     $artistWorker = new ArtistWorker();
     $albumWorker = new AlbumWorker();
     $artistInfo = $artistWorker->getArtist($s["AID"]);
-    $albumInfo = $albumWorker->getAlbumSongID($s["SID"]);
-	$s["album"] = $albumInfo["name"];
+    $albumInfo = $albumWorker->getAlbumSongId($s["SID"]);
+	$s["album"] = $albumworker->getAlbum($s['albumId'])['name'];
     $s["artist"] = $artistInfo["name"];
 }
 
