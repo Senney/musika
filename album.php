@@ -1,5 +1,15 @@
 <?php
+if (!isset($_GET["id"])) { header("Location: index.php"); die(); }
+
 require_once "./common/common.php";
+require_once "./workers/album_worker.php";
+
+$album_worker = new AlbumWorker();
+$album = $album_worker->getAlbum($_GET["id"]);
+if (!$album) { header("Location: index.php"); die(); }
+$contributors = $album_worker->getContributors($_GET["id"]);
+if (!$contributors) { header("Location: index.php"); die(); }
+$songs = $album_worker->getAlbumSongs($_GET["id"]);
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +30,12 @@ require_once "./common/common.php";
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3><?php echo $song_data["title"]; ?></h3>
+							<h3><?php echo $album["name"]; ?></h3>
 						</div>
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-6">
-									<h4>By <a href="artist.php?id=<?=$artist_data["artistId"];?>"><?=$artist_data["name"];?></a></h4>
+									<h4>By <a href="artist.php?id=<?=$contributors[0]["artistId"];?>"><?=$contributors[0]["name"];?></a></h4>
 								</div>
 								<div class="col-md-6">
 									<p class="text-right">
@@ -36,24 +46,14 @@ require_once "./common/common.php";
 							<div class="row">
 								<div class="col-md-12">
 									<hr />
-									<h4>Description</h4>
-									<p><?php
-									if (empty($song_data["description"])) {
-									?>
-										No description entered.
-									<?php
-									} else {
-										echo $song_data["description"];
-									}
-									?></p>
-									<h4>Albums</h4>
+									<h4>Songs (<?=count($songs);?>)</h4>
 									<ul class="list-group">
 									<?php
-									foreach ($album_data as $album) {
+									foreach ($songs as $song) {
 									?>
 										<li class="list-group-item">
-											<a href="album.php?id=<?=$album["albumId"];?>">
-												<?=$album["name"];?>
+											<a href="song.php?id=<?=$song["SID"];?>">
+												<?=$song["title"];?>
 											</a>
 										</li>
 									<?php
