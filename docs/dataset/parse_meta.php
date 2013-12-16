@@ -73,8 +73,19 @@ function add_artist($artist_name) {
 	return mysqli_insert_id($link);
 }
 
+function add_song_album($sid, $aid) {
+	global $link;
+	$query = "INSERT INTO albumsongs VALUES(?, ?)";
+	$params = array($aid, $sid);
+	mysqli_prepared_query($link, $query, "dd", $params);
+	if (mysqli_error($link)) {
+		die($mysqli_error($link));
+	}
+}
+
 $artists = array();
 $albums = array();
+$songs = array();
 
 $file = fopen("data.sql", "r");
 if (!$file) die("Unable to open data file.");
@@ -94,6 +105,7 @@ while (($buffer = fgets($file)) !== false) {
 		$id = add_artist($artist);
 		$artists[strtolower($artist)] = $id;
 		$albums[strtolower($artist)] = array();
+		$songs[strtolower($artist)] = array();
 		break;
 	case "C":
 		// Artist-Album Relation.
@@ -109,7 +121,7 @@ while (($buffer = fgets($file)) !== false) {
 	case "S":
 		$count++;
 		if ($count == $next) {
-			echo "Done importing " . $count . " songs.";
+			echo "Done importing " . $count . " songs.(" . $line . ")" . '\n';
 			$next = $next + 10000;
 		}
 		$song = trim($rest);
@@ -120,13 +132,23 @@ while (($buffer = fgets($file)) !== false) {
 		$rest = substr($buffer, 2);
 		$album = trim($rest);
 		
+		// Handle song in other album. 
+		if (isset($songs[strtolower($artist)][strtolower($song)])) {
+			$id = $songs[strtolower($artist)][strtolower($song)];
+			$aid = $albums[strtolower($artist)][strtolower($album)];
+			//echo "Adding song " . $id . " to " . $aid . '\n';
+			add_song_album($id, $aid);
+			$line += 2;
+			break;
+		}
+		
 		$albumid = $albums[strtolower($artist)][strtolower($album)];
 		$artistid = $artists[strtolower($artist)];
 		if (!isset($albumid)) {
 			die("ERROR: Line " . $line . ".");
 		}
-		add_song($song, $albumid, $artistid);
-		$line += 2;
+		$id = add_song($song, $albumid, $artistid);
+		$songs[strtolower($artist)][strtolower($song)] = $id;
 		break;
 	}
 }
