@@ -12,12 +12,14 @@ if (!isset($_GET["id"])) {
 	$errmsg = "A song ID is required to view a song.";
 }
 else {
-	$song_data = $worker->getSong($_GET["id"])[0];
-	$artist_data = $artist->getArtist($song_data["AID"]);
-	$album_data = $album->getAlbumsSongID($_GET["id"]);
-	print_r($song_data);
-	print_r($artist_data);
-	print_r($album_data);
+	$song_data = $worker->getSong($_GET["id"]);
+	if ($song_data == -1 || empty($song_data)) {
+		$errmsg = "Invalid song ID.";
+	} else {
+		$song_data = $song_data[0];
+		$artist_data = $artist->getArtist($song_data["AID"]);
+		$album_data = $album->getAlbumsSongID($_GET["id"]);
+	}
 }
 
 ?>
@@ -38,11 +40,13 @@ else {
 		// Handle missing ID.
 		if (isset($errmsg)) {
 		?>
-			<div class="alert alert-danger">
+		<div class="alert alert-danger">
 			<?php echo $errmsg; ?>
-			</div>
+		</div>
+	</body>
+</html>
 		<?php
-			die();
+			exit(1);
 		}
 		?>
 		
