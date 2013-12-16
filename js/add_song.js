@@ -3,7 +3,7 @@ var song_seconds_between = 1;
 var song_next_request = 0;
 
 function searchSong(song, artist, album) {
-    if (song.length >= 4) {
+    if (song.length >= 4 || (song.length >= 1 && (artist.length >= 1 || album.length>=1))) {
         $.ajax({
             url: "handlers/song_search_handler.php",
             type: "GET",
