@@ -17,6 +17,21 @@ class ArtistWorker {
 		return $result[0];		
 	}
 	
+	function getArtistSongs($artistId) {
+		$query = "SELECT * FROM song WHERE AID = ?";
+		$link = get_mysqli_link();
+		$result = mysqli_prepared_query($link, $query, "d", array($artistId));
+		if (empty($result)) return false;
+		return $result;
+	}
+	
+	function getArtistAlbums($artistId) {
+		$query = "SELECT al.* FROM album AS al JOIN albumcontributor AS ac ON al.albumId = ac.albumId WHERE ac.artistId = ?";
+		$link = get_mysqli_link();
+		$result = mysqli_prepared_query($link, $query, "d", array($artistId));
+		if (empty($result)) return false;
+		return $result;	
+	}
 	
 	public function saveArtist($name, $desc=null, $era=null, $genre=null) {
 		$link = get_mysqli_link();

@@ -12,6 +12,10 @@ logged_in_redirect();
         <?php
         load_bootstrap_css();
         ?>
+		<link href="css/library.css" rel="stylesheet">
+		
+		<!-- Bootstrap paginator -->
+		<script src="libs/bootstrap-paginator/bootstrap-paginator.min.js"></script>
         <script src="js/library.js"></script>
     </head>
     <body>
@@ -23,12 +27,31 @@ logged_in_redirect();
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h2>My Music</h2>
-						<div class="input-group">
-							<strong>View: </strong>
-							<div class="btn-group btn-group-toggle">
-								<button type="button" class="btn btn-default" selected>Song</button>
-								<button type="button" class="btn btn-default">Album</button>
-								<button type="button" class="btn btn-default">Artist</button>
+						<div class = "row">
+							<div class="col-md-3">
+								<div class="input-group">
+									<strong>View: </strong>
+									<div class="btn-group btn-group-toggle">
+										<button type="button" class="btn btn-default" selected>Song</button>
+										<button type="button" class="btn btn-default">Album</button>
+										<button type="button" class="btn btn-default">Artist</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<form class="form-search">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+										<input type="text" id="library-search" name="library-search" class="form-control" placeholder="Search Parameter" />
+									</div>
+								</form>
+							</div>
+							<div class = "col-md-5">
+								<div class="pull-right">
+									<ul class="pagination" id="library-paginator">
+
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div id="error">

@@ -8,6 +8,15 @@ class AlbumWorker {
 		$result = mysqli_prepared_query($link, $query, "d", array($albumId));
 		return $result[0];
 	}
+	
+	function getContributors($albumId) {
+		$link = get_mysqli_link();
+		$query = "SELECT * FROM albumcontributor AS ac JOIN artist AS ar ON ar.artistId = ac.artistId WHERE ac.albumId = ?";
+		$result = mysqli_prepared_query($link, $query, "d", array($albumId));
+		if (mysqli_error($link)) die(mysqli_error($link));
+		if (empty($result)) return false;
+		return $result;
+	}
 
 	function getAlbumsSongId($songId) {
 		$link = get_mysqli_link();
