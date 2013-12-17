@@ -32,6 +32,26 @@ class OwnershipWorker {
 		return !empty($result);
 	}
 	
+	function addAlbum($albumid, $media) {
+		$query = "INSERT INTO albumownership VALUES(?, ?, ?)";
+		$link = get_mysqli_link();
+		mysqli_prepared_query($link, $query, "ddd", array($this->uid, $albumid, $media));
+		if (mysqli_error($link)) die(mysqli_error($link));
+	}
+	
+	function removeAlbum($albumid) {
+		$query = "DELETE FROM albumownership WHERE UID = ? AND AID = ?";
+		$link = get_mysqli_link();
+		mysqli_prepared_query($link,$query,"ddd",array($this->uid,$albumid));	
+	}
+	
+	function ownsAlbum($albumid) {
+		$query = "SELECT * FROM albumownership WHERE UID = ? AND AID = ?";
+		$link = get_mysqli_link();
+		$result = mysqli_prepared_query($link, $query, "dd", array($this->uid, $albumid));
+		return !empty($result);	
+	}
+	
 	function getUserSongData($limit, $page, $filter) {
 		$start = $limit * $page;
 	
