@@ -1,4 +1,5 @@
 <?
+require_once __DIR__ . "/../database/database.php";
 	class SongRatingWorker{
 		public function updateRating($userid,$songid,$rating){
 			$link = get_mysqli_link();
@@ -29,9 +30,9 @@
 	
 		public function getAverage($songid){
 			$link = get_mysqli_link();
-			$query = "SELECT AVG(rating) FROM songrating WHERE songrating.songId = ?";
+			$query = "SELECT AVG(rating) AS avg FROM songrating WHERE songrating.songId = ?";
 			$result = mysquli_prepared_query($link,$query,"d",array($songid);
-			return $result;
+			return $result[0]["avg"];
 		
 		}
 	
