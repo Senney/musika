@@ -22,11 +22,11 @@ function handleSongAjax(data) {
     }
     var items = [];
     $.each(obj, function(i, data) {
-        var element = "<li>" + data.title +' - '+data.album+' by '+data.artist+'</li>';
+        var element = "<li class='list-group-item'>" + data.title +' - '+data.album+' by '+data.artist+'</li>';
         items.push(element);
     });
     if (items.length == 0) {
-		$("#song-search-result").append("<li>No results found.</li>");
+		$("#song-search-result").append("<li class='list-group-item'>No results found.</li>");
 	} else {
 		$("#song-search-result").append(items.join(''));
 	}
@@ -42,13 +42,16 @@ function keypress_song_search(event) {
 	if (!c.match(/[\w\d]/) && event.keyCode != 32 && event.keyCode != 8) {
 		return;
 	}
+	
+	if (song_input.val().length == 0) {
+		$("#song-search-result").empty();
+		$("#song-search-result").append("<li class='list-group-item'>No results found.</li>");
+	}
 
 	clearTimeout(typingTimer);
-	if (song_input.val) {
-		typingTimer = setTimeout(function() {
-			searchSong(song_input.val(), artist_input.val(), album_input.val());
-		}, doneTypingInterval);
-	}
+	typingTimer = setTimeout(function() {
+		searchSong(song_input.val(), artist_input.val(), album_input.val());
+	}, doneTypingInterval);
 }
 
 var typingTimer;

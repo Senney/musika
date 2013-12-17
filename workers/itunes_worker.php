@@ -32,6 +32,8 @@ class iTunesWorker {
 		if ($obj == -1) {
 			return -1;
 		}
+		if (!isset($obj[0])) return -1;
+		
 		return $obj[0]["artistId"];
 	}
 	
