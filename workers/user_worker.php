@@ -1,7 +1,7 @@
 <?php
 
-require_once "../libs/password_compat/lib/password.php";
-require_once "../database/database.php";
+require_once __DIR__ . "/../libs/password_compat/lib/password.php";
+require_once __DIR__ . "/../database/database.php";
 
 class UserWorker {
 	public function getById($id) {
@@ -40,6 +40,15 @@ class UserWorker {
 		
 		$_SESSION["user.id"] = $user["UserId"];
 		$_SESSION["user.name"] = $user["username"];
+	}
+	public function setBio($userid, $bio){
+		$link =get_mysqli_link();
+		$query = "UPDATE users SET bio = ? " .
+		"WHERE users.UserId = ?";
+		$result = mysqli_prepared_query($link, $query,"sd",array($bio,$userid));
+		
+		
+	
 	}
 	
 	/**

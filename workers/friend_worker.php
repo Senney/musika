@@ -14,12 +14,10 @@ class FriendWorker{
 		}
 		public function getUserFriend($userid){
 			$link = get_mysqli_link();
-			$query = "SELECT * FROM friend JOIN user ON friend.FriendId  == users.UserId ".
-			"WHERE friend.FriendId = ?";
-			
+			$query = "SELECT * FROM friend JOIN users ON friend.FriendId = users.UserId ".
+			"WHERE friend.UserId = ?";
 			$result = mysqli_prepared_query($link, $query, "d",array($userid)); 
-			
-		
+			if (mysqli_error($link)) die(mysqli_error($link));
 			if(empty($result)) return false;
 			return $result;
 		}

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../database/database.php"
+require_once __DIR__ . "/../database/database.php";
 
 class PlaylistWorker{
 	public function addPlaylist($playlistName){
@@ -12,14 +12,14 @@ class PlaylistWorker{
 		$link = get_mysqli_link();
 		$query = "SELECT * FROM playlist WHERE playlist.pId = ?";
 		$result = mysqli_prepared_query($link, $query, "d", array($pId));
-		return = $result;
+		return $result;
 	}
 
 	public function getPlaylistSongs($pId){
 		$link = get_mysqli_link();
 		$query = "SELECT * FROM playlistentry WHERE playlistentry.pId = ?";
 		$result = mysqli_prepared_query($link, $query, "d", array($pId));
-		return = $result;
+		return $result;
 	}
 	
 	public function sharePlaylist($userId, $pId, $message = null){

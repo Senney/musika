@@ -29,7 +29,7 @@
 				} else {
 ?>
 				<li>
-					<a href="#">
+					<a href="user.php">
 						<?php 
 						echo $_SESSION["user.name"]; 
 						?>
