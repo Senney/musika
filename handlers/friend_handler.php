@@ -1,4 +1,5 @@
 <?php
+require_once "../common/common.php";
 require_once "../database/database.php";
 require_once "../workers/friend_worker.php";
 require_once "../workers/user_worker.php";
@@ -15,10 +16,13 @@ if (!keys_exist($_GET, array(
 $friend_worker = new FriendWorker();
 $user_friend = $_GET["userid"];
 $type = $_GET["type"];
-if($type = 1){
+echo (gettype($type));
+if($type == "1"){
+echo "Adding friend";
 $friend_worker->addFriend($user_friend);
 }
-elseif($type = 2){
+elseif($type == "2"){
+echo "Removing friend";
 $friend_worker->deleteFriend($user_friend);
 }
 
