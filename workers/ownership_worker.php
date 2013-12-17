@@ -22,7 +22,7 @@ class OwnershipWorker {
 	function getUserSongData($limit, $page, $filter) {
 		$start = $limit * $page;
 	
-		$query = "SELECT s.title AS songtitle, ar.name AS artistname, al.name AS albumname FROM songownership AS so " . 
+		$query = "SELECT s.title AS songtitle, s.SID AS songid, ar.name AS artistname, ar.artistId AS artistid, al.name AS albumname, al.albumID AS albumid FROM songownership AS so " . 
 		"JOIN song AS s ON s.SID = so.SID ".
 		"JOIN artist AS ar ON ar.artistId = s.AID ".
 		"JOIN album AS al ON al.albumID = so.AID ".

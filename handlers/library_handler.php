@@ -14,7 +14,16 @@ $worker = new OwnershipWorker($userid);
 if ($type == "song") {
 	$returndata = array("head" => array("Title", "Artist", "Album"), "data" => array());
 	$songs = $worker->getUserSongData($limit, $page, $filter);
-	$returndata["data"] = $songs;
+	$retsongs = array();
+	for ($i = 0; $i < count($songs); $i++) {
+		$newsong = array();
+		$song = $songs[$i];
+		$newsong["title"] = "<a href='song.php?id=".$song["songid"]."'>".$song["songtitle"]."</a>";
+		$newsong["artist"] = "<a href='artist.php?id=".$song["artistid"]."'>".$song["artistname"]."</a>";
+		$newsong["album"] = "<a href='album.php?id=".$song["albumid"]."'>".$song["albumname"]."</a>";
+		array_push($retsongs, $newsong);
+	}
+	$returndata["data"] = $retsongs;
 	die(json_encode($returndata));
 } else if ($type == "count") {
 	echo $worker->getUserSongCount($filter);

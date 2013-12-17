@@ -63,7 +63,7 @@ function reset_paginator(page) {
 
 function load_music_table_ajax(page) {
 	if (page < 0) return false;
-	$.ajax({
+	currentRequest = $.ajax({
 		url: "handlers/library_handler.php",
 		type: "GET",
 		data: {type:"song", limit:15, page:page, filter:$("#library-search").val()}
@@ -84,11 +84,12 @@ function load_music_table_ajax(page) {
 		for (header in parsed_data.head) {
 			$("#music-display-table-head").append($("<th>").text(parsed_data.head[header]));
 		}
+		
 		for (song in parsed_data.data) {
 			var s = parsed_data.data[song];
 			$("#music-display-table-body").append($("<tr>"));
 			for (ele in s) {
-				$("#music-display-table-body tr:last").append($("<td>").text(s[ele]));
+				$("#music-display-table-body tr:last").append($("<td>").append($(s[ele])));
 			}
 		}
 	});
