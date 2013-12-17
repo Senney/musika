@@ -1,6 +1,6 @@
 <?php
 
-require_once "../database/database.php";
+require_once __DIR__ . "/../database/database.php";
 
 class OwnershipWorker {
 	
@@ -17,6 +17,19 @@ class OwnershipWorker {
 		$link = get_mysqli_link();
 		mysqli_prepared_query($link, $query, "dddd", $params);
 		if (mysqli_error($link)) die(mysqli_error($link));
+	}
+	
+	function removeSong($songid,$albumid){
+		$query = "DELETE FROM songownership WHERE UID = ? AND AID = ? AND SID =?";
+		$link = get_mysqli_link();
+		mysqli_prepared_query($link,$query,"ddd",array($this->uid,$albumid,$songid));
+	}
+	
+	function ownsSong($songid, $albumid) {
+		$query = "SELECT * FROM songownership WHERE UID = ? AND AID = ? AND SID = ?";
+		$link = get_mysqli_link();
+		$result = mysqli_prepared_query($link, $query, "ddd", array($this->uid, $albumid, $songid));
+		return !empty($result);
 	}
 	
 	function getUserSongData($limit, $page, $filter) {
