@@ -94,7 +94,7 @@ else {
 												</div>
 												<div class="col-md-4">
 												<?php
-												$url = "handlers/add_song_handler.php?songid=".$_GET["id"]."&albumid=".$album["albumId"];
+												$url = "handlers/song_handler.php?songid=".$_GET["id"]."&albumid=".$album["albumId"];
 												if ($owner->ownsSong($_GET["id"], $album["albumId"])) {
 												?>
 													<a href="<?=$url;?>" class="btn badge badge-danger pull-right">
