@@ -30,11 +30,11 @@ logged_in_redirect();
 						<div class = "row">
 							<div class="col-md-3">
 								<div class="input-group">
-									<strong>View: </strong>
+									<strong>Sort: </strong>
 									<div class="btn-group btn-group-toggle">
-										<button type="button" class="btn btn-default" selected>Song</button>
-										<button type="button" class="btn btn-default">Album</button>
-										<button type="button" class="btn btn-default">Artist</button>
+										<button type="button" class="btn btn-default" value="song" selected>Song</button>
+										<button type="button" class="btn btn-default" value="album">Album</button>
+										<button type="button" class="btn btn-default" value="artist">Artist</button>
 									</div>
 								</div>
 							</div>
