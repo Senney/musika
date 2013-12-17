@@ -12,18 +12,16 @@ if (!keys_exist($_GET, array(
 	exit(1);
 }
 
-
 $friend_worker = new FriendWorker();
 $user_friend = $_GET["userid"];
 $type = $_GET["type"];
-echo (gettype($type));
 if($type == "1"){
-echo "Adding friend";
-$friend_worker->addFriend($user_friend);
+	$friend_worker->addFriend($user_friend);
 }
 elseif($type == "2"){
-echo "Removing friend";
-$friend_worker->deleteFriend($user_friend);
+	$friend_worker->deleteFriend($user_friend);
 }
+
+header("Location: " . $_SERVER["HTTP_REFERER"]);
 
 ?>

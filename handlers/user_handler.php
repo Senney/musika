@@ -11,8 +11,6 @@ $type = $_POST["type"];
 if ($type == "bio") {
 	$newbio = empty($_POST["bio"]) ? null : $_POST["bio"];
 	$worker->setBio(usrid(), $newbio);
-} else if ($type == "friend) {
-	
 }
 
 header("Location: ../user.php?error=1");

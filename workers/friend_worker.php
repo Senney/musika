@@ -29,5 +29,18 @@ class FriendWorker{
 			$result = mysqli_prepared_query($link,$query,"dd",array(usrid(),$userid));
 		}
 		
+		public function isFriend($userid1,$userid2){
+			if($userid1 == $userid2) return false;
+			$link = get_mysqli_link();
+			$query = "SELECT * FROM friend WHERE friend.UserId = ? AND friend.FriendId = ?";
+			$result = mysqli_prepared_query($link,$query,"dd",array($userid1,$userid2));
+			
+			if(!empty($result)) return true;
+
+			else return false;
+		
+		
+		}
+		
 
 }

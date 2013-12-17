@@ -14,6 +14,7 @@ $friend_worker = new FriendWorker();
 $friends = $friend_worker->getUserFriend($user["UserId"]);
 
 $mypage = $user["UserId"] == usrid();
+$isfriend = $friend_worker->isFriend(usrid(), $user["UserId"]);
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,11 @@ $mypage = $user["UserId"] == usrid();
         <?php
         load_bootstrap_css();
         ?>
+		<style>
+			.btn-pad-top {
+				margin-top: 15px;
+			}
+		</style>
     </head>
     <body>
 		<?php
@@ -34,7 +40,29 @@ $mypage = $user["UserId"] == usrid();
 				<div class = "col-md-12">
 					<div class = "panel panel-default">
 						<div class = "panel-heading">
-							<h3><?=$user["username"];?></h3>
+							<div class="row">
+								<div class="col-md-6">
+									<h3><?=$user["username"];?></h3>
+								</div>
+								<div class="col-md-6 pull-right">
+								<?php
+								if (!$mypage && $isfriend) {
+								?>
+									<a class="btn btn-danger btn-pad-top pull-right" href="handlers/friend_handler.php?type=2&userid=<?=$user["UserId"];?>" type="submit">
+										Remove Friend
+									</a>
+								<?php
+								} else if (!$mypage && !$isfriend) {
+								?>
+								
+									<a class="btn btn-success btn-pad-top pull-right" href="handlers/friend_handler.php?type=1&userid=<?=$user["UserId"];?>" type="submit">
+										Add Friend
+									</a>	
+								<?php								
+								}
+								?>
+								</div>
+							</div>
 						</div>
 						<div class = "panel-body">
 							<div class = "row"> 
