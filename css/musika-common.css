@@ -1,3 +1,11 @@
 div.row-pad-top {
 	margin-top: 8px;
 }
+
+.badge-success {
+	background-color: rgb(0, 168, 14);
+}
+
+.badge-danger {
+	background-color: rgb(176, 97, 97);
+}

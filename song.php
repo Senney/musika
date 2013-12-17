@@ -3,10 +3,12 @@ require_once "./common/common.php";
 require_once "./workers/song_worker.php";
 require_once "./workers/artist_worker.php";
 require_once "./workers/album_worker.php";
+require_once "./workers/ownership_worker.php";
 
 $worker = new SongWorker();
 $artist = new ArtistWorker();
 $album = new AlbumWorker();
+$owner = new OwnershipWorker(usrid());
 
 if (!isset($_GET["id"])) {
 	$errmsg = "A song ID is required to view a song.";
@@ -63,9 +65,6 @@ else {
 									<h4>By <a href="artist.php?id=<?=$artist_data["artistId"];?>"><?=$artist_data["name"];?></a></h4>
 								</div>
 								<div class="col-md-6">
-									<p class="text-right">
-										Add to Library
-									</p>
 								</div>
 							</div>
 							<div class="row">
@@ -87,9 +86,29 @@ else {
 									foreach ($album_data as $album) {
 									?>
 										<li class="list-group-item">
-											<a href="album.php?id=<?=$album["albumId"];?>">
-												<?=$album["name"];?>
-											</a>
+											<div class="row">
+												<div class="col-md-8">
+													<a href="album.php?id=<?=$album["albumId"];?>">
+														<?=$album["name"];?>
+													</a>
+												</div>
+												<div class="col-md-4">
+												<?php
+												$url = "handlers/add_song_handler.php?songid=".$_GET["id"]."&albumid=".$album["albumId"];
+												if ($owner->ownsSong($_GET["id"], $album["albumId"])) {
+												?>
+													<a href="<?=$url;?>" class="btn badge badge-danger pull-right">
+														Remove From Library
+													</a>
+												<?php
+												} else {
+												?>
+													<a href="<?=$url;?>" class="btn badge badge-success pull-right">Add To Library</a>
+												<?php
+												}
+												?>
+												</div>
+											</div>
 										</li>
 									<?php
 									}
