@@ -62,24 +62,6 @@ $songs = $artist_worker->getArtistSongs($aid);
 									?>	
 									</ul>
 								</div>
-								<!--
-								<div class="col-md-6">
-									<h4>Songs</h4>
-									<ul class="list-group">
-									<?php
-									foreach ($songs as $song) {
-									?>
-										<li class="list-group-item">
-											<a href="song.php?id=<?=$song["SID"];?>">
-												<?=$song["title"];?>
-											</a>
-										</li>
-									<?php
-									}
-									?>										
-									</ul>
-								</div>
-								-->
 							</div>
 							<div class = "row">
 								<hr />
