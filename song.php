@@ -97,6 +97,14 @@ else {
 									</ul>
 								</div>
 							</div>
+							<div class = "row">
+								<hr />
+								<div class="col-md-12">
+									<a href = "./handlers/cache_handler.php?artistid=<?=$artist_data["artistId"];?>">
+										<strong>Are we missing something? Click here to automatically update the data.</strong>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

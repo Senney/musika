@@ -10,6 +10,7 @@ if (!$album) { header("Location: index.php"); die(); }
 $contributors = $album_worker->getContributors($_GET["id"]);
 if (!$contributors) { header("Location: index.php"); die(); }
 $songs = $album_worker->getAlbumSongs($_GET["id"]);
+$artist = $contributors[0];
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@ $songs = $album_worker->getAlbumSongs($_GET["id"]);
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-6">
-									<h4>By <a href="artist.php?id=<?=$contributors[0]["artistId"];?>"><?=$contributors[0]["name"];?></a></h4>
+									<h4>By <a href="artist.php?id=<?=$artist["artistId"];?>"><?=$artist["name"];?></a></h4>
 								</div>
 								<div class="col-md-6">
 									<p class="text-right">
@@ -60,6 +61,14 @@ $songs = $album_worker->getAlbumSongs($_GET["id"]);
 									}
 									?>
 									</ul>
+								</div>
+							</div>
+							<div class = "row">
+								<hr />
+								<div class="col-md-12">
+									<a href = "./handlers/cache_handler.php?artistid=<?=$artist["artistId"];?>">
+										<strong>Are we missing something? Click here to automatically update the data.</strong>
+									</a>
 								</div>
 							</div>
 						</div>
