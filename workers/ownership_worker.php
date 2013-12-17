@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../database/database.php";
+require_once __DIR__ . "/../workers/album_worker.php";
 
 class OwnershipWorker {
 	
@@ -10,7 +11,7 @@ class OwnershipWorker {
 		$this->uid = $userid;
 	}
 
-	function addSong($songid, $albumid, $media) {
+	function addSong($songid, $albumid, $media = null) {
 		$query = "INSERT INTO songownership VALUES(?, ?, ?, ?)";
 		$params = array($this->uid, $songid, $albumid, $media);
 		print_r($params);
@@ -32,17 +33,30 @@ class OwnershipWorker {
 		return !empty($result);
 	}
 	
-	function addAlbum($albumid, $media) {
+	function addAlbum($albumid, $media = null) {
 		$query = "INSERT INTO albumownership VALUES(?, ?, ?)";
 		$link = get_mysqli_link();
 		mysqli_prepared_query($link, $query, "ddd", array($this->uid, $albumid, $media));
+		
+		$sw = new AlbumWorker();
+		$songs = $sw->getAlbumSongs($albumid);
+		foreach ($songs as $song) {
+			$this->addSong($song["SID"], $albumid);
+		}
+		
 		if (mysqli_error($link)) die(mysqli_error($link));
 	}
 	
 	function removeAlbum($albumid) {
 		$query = "DELETE FROM albumownership WHERE UID = ? AND AID = ?";
 		$link = get_mysqli_link();
-		mysqli_prepared_query($link,$query,"ddd",array($this->uid,$albumid));	
+		mysqli_prepared_query($link,$query,"dd",array($this->uid,$albumid));	
+
+		$sw = new AlbumWorker();
+		$songs = $sw->getAlbumSongs($albumid);
+		foreach ($songs as $song) {
+			$this->removeSong($song["SID"], $albumid);
+		}
 	}
 	
 	function ownsAlbum($albumid) {
