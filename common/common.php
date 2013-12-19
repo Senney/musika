@@ -62,6 +62,21 @@ function logged_in_redirect() {
 	}
 }
 
+function fmt_milliseconds($ms) {
+	if ($ms <= 0) {
+		return "-";
+	}
+
+	$seconds = ceil($ms / 1000);
+	$minutes = floor($seconds / 60);
+	$seconds = $seconds - ($minutes * 60);
+	if ($seconds < 10) {
+		$seconds = "0" . $seconds;
+	}
+	
+	return $minutes . ":" . $seconds;
+}
+
 function redirect_back() {
 	if (!isset($_SERVER["HTTP_REFERER"])) {
 		header("Location: /musika/index.php");

@@ -3,6 +3,7 @@ if (!isset($_GET["id"])) { header("Location: index.php"); die(); }
 
 require_once "./common/common.php";
 require_once "./workers/artist_worker.php";
+require_once "./workers/ownership_worker.php";
 
 $aid = $_GET["id"];
 $artist_worker = new ArtistWorker();
@@ -10,6 +11,7 @@ $artist = $artist_worker->getArtist($aid);
 if (!$artist) { header("Location: index.php"); die(); }
 $albums = $artist_worker->getArtistAlbums($aid);
 $songs = $artist_worker->getArtistSongs($aid);
+$owner = new OwnershipWorker(usrid());
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +45,26 @@ $songs = $artist_worker->getArtistSongs($aid);
 									}
 									?>
 								</div>
+							</div>		
+							<hr />					
+							<div class="row">
+								<div class="col-md-3">
+									<h4>Artist Information</h4>
+									<table class="table table-bordered table-condensed">
+										<thead>
+											<th>Attribute</th>
+											<th>Value</th>											
+										</thead>
+										<tbody>
+											<tr>
+												<td>Genre</td>
+												<td><?=$owner->getGenre($artist["genre"]);?></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
 							<div class="row">
-								<hr />
 								<div class="col-md-12">
 									<h4>Albums (<?=count($albums);?>)</h4>
 									<ul class="list-group">
@@ -53,9 +72,31 @@ $songs = $artist_worker->getArtistSongs($aid);
 									foreach ($albums as $album) {
 									?>
 										<li class="list-group-item">
-											<a href="album.php?id=<?=$album["albumID"];?>">
-												<?=$album["name"];?>
-											</a>
+										<div class="row">
+											<div class="col-md-8">
+												<a href="album.php?id=<?=$album["albumID"];?>">
+													<?=$album["name"];?>
+												</a>
+											</div>
+											<div class="col-md-4">
+												<?php
+												$url = "handlers/album_handler.php?albumid=".$album["albumID"];
+												if ($owner->ownsAlbum($album["albumID"])) {
+												?>
+													<a href="<?=$url;?>" class="btn badge badge-danger pull-right">
+														Remove From Library
+													</a>
+												<?php
+												} else {
+												?>
+													<a href="<?=$url;?>" class="btn badge badge-success pull-right">
+														Add To Library
+													</a>
+												<?php
+												}
+												?>		
+											</div>
+										</div>
 										</li>
 									<?php
 									}

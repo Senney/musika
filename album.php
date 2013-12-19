@@ -62,9 +62,30 @@ $owner = new OwnershipWorker(usrid());
 									?>
 								</div>
 							</div>
+							<hr />
+							<div class="row">
+								<div class="col-md-3">
+									<h4>Album Information</h4>
+									<table class="table table-bordered table-condensed">
+										<thead>
+											<th>Attribute</th>
+											<th>Value</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Year Produced</td>
+												<td><?=$album["year"];?></td>
+											</tr>
+											<tr>
+												<td>Genre</td>
+												<td><?=$owner->getGenre($album["genre"]);?></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<hr />
 									<h4>Songs (<?=count($songs);?>)</h4>
 									<ul class="list-group">
 									<?php

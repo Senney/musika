@@ -25,49 +25,33 @@ logged_in_redirect();
 						<h3>Add From Our Database</h3>
 						<h5>Musika maintains a database of over 900,000 songs! Enter your search parameter into one or more of the fields below
 						to start populating your library.</h5>
-						<form class="form form-add-song" role="form" method="POST" action="handlers/song_handler.php" />
+						<form class="form form-add-song" role="form" method="GET" action="search.php" />
 							<div class="row">
-								<div class="col-xs-9 col-md-9">
+								<div class="col-xs-12 col-md-12">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-music"></span></span>
-										<input type="text" id="song-name" name="song-name" class="form-control" placeholder="Song Title" required autofocus />
+										<input type="text" id="song-name" name="song-name" class="form-control" placeholder="Song Title" autofocus />
 									</div>
 								</div>
 							</div>
 							<div class="row row-pad-top">
-								<div class="col-xs-3 col-md-3">
-									<div class="input-group">
-										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-										<input type="text" id="artist-name" name="artist-name" class="form-control" placeholder="Artist Name" />
-									</div>
-								</div>
-								<div class="col-xs-3 col-md-3">
+								<div class="col-xs-4 col-md-4">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-headphones"></span></span>
 										<input type="text" id="album-name" name="album-name" class="form-control" placeholder="Album Name" />
 									</div>
 								</div>
-								<div class="col-xs-3 col-md-3">
+								<div class="col-xs-4 col-md-4">
 									<div class="input-group">
-										<span class="input-group-addon"><span class="glyphicon glyphicon-floppy-disk"></span></span>				
-										<select class="form-control" name="media-type">
-											<option value="1">Digital</option>
-											<option value="2">CD</option>
-											<option value="3">Record</option>
-										</select>	
-									</div>			
-								</div>	
-								<div class="col-xs-3 col-md-3">
-									<button class="btn btn-success btn-block" type="submit">Add Song</button>
+										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+										<input type="text" id="artist-name" name="artist-name" class="form-control" placeholder="Artist Name" />
+									</div>
+								</div>
+								<div class="col-xs-4 col-md-4">
+									<button class="btn btn-success btn-block" type="submit">Search Database</button>
 								</div>					
 							</div>
 						</form>
-					</div>
-					<div class="panel-body">
-						<h4>Search Results:</h4>
-						<ul class="search-result list-group" id="song-search-result">
-							<li class='list-group-item'>No Results Yet!</li>
-						</ul>
 					</div>
 				</div>
 			</div>
@@ -109,13 +93,6 @@ logged_in_redirect();
 								</div>					
 							</div>
 						</form>
-					</div>
-					<div class="panel-body">
-						<h4>Search Results:</h4>
-						<ul>
-							<li>Album Result 1</li>
-							<li>Album Result 2</li>
-						</ul>
 					</div>
 				</div>				
 			</div>

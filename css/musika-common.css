@@ -9,3 +9,11 @@ div.row-pad-top {
 .badge-danger {
 	background-color: rgb(176, 97, 97);
 }
+
+.search-table th {
+	width: 12%;
+}
+
+.search-table th.song-row {
+	width: 50%;
+}

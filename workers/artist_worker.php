@@ -17,6 +17,18 @@ class ArtistWorker {
 		return $result[0];		
 	}
 	
+	public function findArtistName($name) {
+		$link = get_mysqli_link();
+		
+		// Wildcard search.
+		$name = '%' . $name . '%';
+		$query = "SELECT * FROM artist WHERE name LIKE ? ORDER BY name ASC";
+		$result = mysqli_prepared_query($link, $query, "s", array($name));
+		
+		if (empty($result)) return false;
+		return $result;	
+	}
+	
 	function getArtistSongs($artistId) {
 		$query = "SELECT * FROM song WHERE AID = ?";
 		$link = get_mysqli_link();
@@ -31,6 +43,26 @@ class ArtistWorker {
 		$result = mysqli_prepared_query($link, $query, "d", array($artistId));
 		if (empty($result)) return false;
 		return $result;	
+	}
+	
+	public function setGenre($aid, $genre) {
+		$query = "SELECT * FROM genre WHERE type = ?";
+		$link = get_mysqli_link();
+		$result = mysqli_prepared_query($link, $query, "s", array($genre));
+		if (mysqli_error($link)) die(mysqli_error($link));
+		
+		if (empty($result)) {
+			$query = "INSERT INTO genre VALUES(DEFAULT, ?, NULL)";
+			$result = mysqli_prepared_query($link, $query, "s", array($genre));
+			if (mysqli_error($link)) die(mysqli_error($link));
+			$gid = mysqli_insert_id($link);
+		} else {
+			$gid = $result[0]["GID"];
+		}
+	
+		$query = "UPDATE artist SET genre = ? WHERE artistId = ?";
+		mysqli_prepared_query($link, $query, "dd", array($gid, $aid));
+		if (mysqli_error($link)) die(mysqli_error($link));
 	}
 	
 	public function saveArtist($name, $desc=null, $era=null, $genre=null) {

@@ -10,7 +10,7 @@ class UserWorker {
 		$result = mysqli_prepared_query(get_mysqli_link(), $query, 
 			"d", $params);
 		if (empty($result)) {
-			return -1;
+			return false;
 		}
 		return $result[0];
 	}

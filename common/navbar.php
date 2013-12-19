@@ -7,8 +7,6 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="index.php">Musika</a>
 		</div>
@@ -17,7 +15,6 @@
 				<li><a href="library.php">My Music</a></li>
 				<li><a href="add.php">Add Music</a></li>
 				<li><a href="playlist.php">Playlists</a></li>
-				<li><a href="search.php">Search</a></li>
 				<li><a href="stats.php">Statistics</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-default navbar-right">

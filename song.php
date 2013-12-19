@@ -68,8 +68,8 @@ else {
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12">
 									<hr />
+								<div class="col-md-6">
 									<h4>Description</h4>
 									<p><?php
 									if (empty($song_data["description"])) {
@@ -80,6 +80,29 @@ else {
 										echo $song_data["description"];
 									}
 									?></p>
+								</div>
+								<div class="col-md-3">
+									<h4>Attributes</h4>
+									<table class="table table-bordered table-condensed">
+										<thead>
+											<th>Attribute</th>
+											<th>Value</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Song Length</td>
+												<td><?=fmt_milliseconds($song_data["length"]);?></td>
+											</tr>
+											<tr>
+												<td>Genre</td>
+												<td><?=$worker->getGenre($song_data["genre"]);?></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
 									<h4>Albums</h4>
 									<ul class="list-group">
 									<?php
@@ -98,12 +121,12 @@ else {
 												if ($owner->ownsSong($_GET["id"], $album["albumId"])) {
 												?>
 													<a href="<?=$url;?>" class="btn badge badge-danger pull-right">
-														Remove From Library
+														Remove Song From Library
 													</a>
 												<?php
 												} else {
 												?>
-													<a href="<?=$url;?>" class="btn badge badge-success pull-right">Add To Library</a>
+													<a href="<?=$url;?>" class="btn badge badge-success pull-right">Add Song To Library</a>
 												<?php
 												}
 												?>

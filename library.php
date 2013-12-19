@@ -1,7 +1,12 @@
 <?php
 require_once "./common/common.php";
+require_once "./workers/playlist_worker.php";
 
 logged_in_redirect();
+
+$plw = new PlaylistWorker();
+$playlists = $plw->getPlaylists(usrid());
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +21,9 @@ logged_in_redirect();
 		
 		<!-- Bootstrap paginator -->
 		<script src="libs/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+		<script id="playlist_list" type="text">
+
+		</script>
         <script src="js/library.js"></script>
     </head>
     <body>
@@ -28,17 +36,19 @@ logged_in_redirect();
 					<div class="panel-body">
 						<h2>My Music</h2>
 						<div class = "row">
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="input-group">
 									<strong>Sort: </strong>
 									<div class="btn-group btn-group-toggle">
 										<button type="button" class="btn btn-default" value="song" selected>Song</button>
 										<button type="button" class="btn btn-default" value="album">Album</button>
 										<button type="button" class="btn btn-default" value="artist">Artist</button>
+										<button type="button" class="btn btn-default" value="genre">Genre</button>
+										<button type="button" class="btn btn-default" value="rating">Rating</button>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<form class="form-search">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
@@ -54,6 +64,7 @@ logged_in_redirect();
 								</div>
 							</div>
 						</div>
+						<br />
 						<div id="error">
 						
 						</div>

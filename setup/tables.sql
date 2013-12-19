@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS song(
 	description TEXT,
 	AID INTEGER NOT NULL,
 	genre INTEGER,
+	length INTEGER,
 	
 	PRIMARY KEY (SID),
 	FOREIGN KEY (AID) REFERENCES artist(artistId),
@@ -123,11 +124,13 @@ CREATE TABLE IF NOT EXISTS playlistentry(
 	userId INTEGER NOT NULL,
 	pId INTEGER NOT NULL,
 	sId INTEGER NOT NULL,
+	aId INTEGER NOT NULL,
 	
-	PRIMARY KEY (userId, pId, sId),
+	PRIMARY KEY (userId, pId, sId, aId),
 	FOREIGN KEY (userId) REFERENCES users(UserId),
 	FOREIGN KEY (pId) REFERENCES playlist(pId),
-	FOREIGN KEY (sId) REFERENCES song(SID)
+	FOREIGN KEY (sId) REFERENCES song(SID),
+	FOREIGN KEY (aId) REFERENCES album(albumID)
 );
 
 CREATE TABLE IF NOT EXISTS playlistrating(

@@ -15,6 +15,9 @@ $friends = $friend_worker->getUserFriend($user["UserId"]);
 
 $mypage = $user["UserId"] == usrid();
 $isfriend = $friend_worker->isFriend(usrid(), $user["UserId"]);
+
+$plw = new PlaylistWorker();
+$playlists = $plw->getPlaylists($userid);
 ?>
 
 <!DOCTYPE html>
@@ -124,6 +127,27 @@ $isfriend = $friend_worker->isFriend(usrid(), $user["UserId"]);
 								</div>
 								<div class = "col-md-6">
 									<h4>Playlists</h4>
+									<ul class="list-group">
+										<?php
+										if($playlists){
+											foreach ($playlists as $pl) {
+										?>
+										<li class="list-group-item">
+											<a href="view_playlist.php?id=<?=$pl["pId"];?>">
+												<?=$pl["name"];?>
+											</a>
+										</li>
+										<?php
+										}
+									} else {
+									?>
+										<li class="list-group-item">
+											User has no playlists
+										</li>
+									<?php
+									}
+									?>										
+									</ul>
 								</div>
 							</div>
 						</div>

@@ -35,6 +35,7 @@ class CacheWorker {
 			$id = $artist_worker->saveArtist($a["artistName"]);
 			$artist = $artist_worker->getArtist($id);
 		}
+		if (isset($albums[0]["primaryGenreName"])) $artist_worker->setGenre($artist["artistId"], $albums[0]["primaryGenreName"]);
 
 		$count = 0;
 		foreach ($albums as $alb) {
@@ -57,6 +58,7 @@ class CacheWorker {
 			$albid = $album_worker->addAlbum($aname, $aid, $date);
 			$album = $album_worker->getAlbum($albid);
 		}
+		if (isset($alb["primaryGenreName"])) $album_worker->setGenre($album["albumID"], $alb["primaryGenreName"]);
 		
 		$songs = $itunes->get_album_songs($alb["collectionId"]);
 		$count = 0;
@@ -81,6 +83,8 @@ class CacheWorker {
 			$ret = 1;
 		}
 		$album_worker->addSong($albid, $cached["SID"]);
+		if (isset($song["trackTimeMillis"])) $song_worker->setLength($cached["SID"], $song["trackTimeMillis"]);
+		if (isset($song["primaryGenreName"])) $song_worker->setGenre($cached["SID"], $song["primaryGenreName"]);
 		return $ret;
 	}
 }

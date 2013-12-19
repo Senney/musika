@@ -8,6 +8,8 @@ $(function() {
 		}
 		child_btn.click(function() {
 			toggle_button($(this));
+			load_music_table_ajax(0);
+			reset_paginator(1);
 		});
 	});
 	
@@ -63,10 +65,11 @@ function reset_paginator(page) {
 
 function load_music_table_ajax(page) {
 	if (page < 0) return false;
+	var sort_order = $(".btn-group-toggle").children("button[selected]:first").val();
 	currentRequest = $.ajax({
 		url: "handlers/library_handler.php",
 		type: "GET",
-		data: {type:"song", limit:15, page:page, filter:$("#library-search").val()}
+		data: {type:"song", limit:15, page:page, filter:$("#library-search").val(), sort: sort_order}
 	}).done(function(data) {
 		var parsed_data = $.parseJSON(data);
 		$("#music-display-table-head").empty();

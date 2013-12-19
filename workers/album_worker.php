@@ -9,6 +9,26 @@ class AlbumWorker {
 		return $result[0];
 	}
 	
+	function findAlbumArtistName($album_name, $artist_name) {
+		$link = get_mysqli_link();
+		$query = "SELECT al.name AS albumname, ar.name AS artistname, ar.artistId AS artistId, al.albumID AS albumId ".
+		"FROM album AS al ".
+		"JOIN albumcontributor AS ac ON ac.albumId = al.albumId " .
+		"JOIN artist AS ar ON ar.artistID = ac.artistId " .
+		"WHERE al.name LIKE ? ";
+		$album_name = '%' . $album_name . '%';
+		$params = array($album_name);
+		$pstr = "s";
+		if (!empty($artist_name)) {
+			$artist_name = '%' . $artist_name . '%';
+			$query .= "AND ar.name LIKE ?";
+			array_push($params, $artist_name);
+			$pstr .= "s";
+		}
+		$result = mysqli_prepared_query($link, $query, $pstr, $params);
+		return $result;
+	}
+	
 	function getContributors($albumId) {
 		$link = get_mysqli_link();
 		$query = "SELECT * FROM albumcontributor AS ac JOIN artist AS ar ON ar.artistId = ac.artistId WHERE ac.albumId = ?";
@@ -74,6 +94,25 @@ class AlbumWorker {
 		mysqli_prepared_query($link, $query, "dd", $params);
 	}
 	
+	public function setGenre($aid, $genre) {
+		$query = "SELECT * FROM genre WHERE type = ?";
+		$link = get_mysqli_link();
+		$result = mysqli_prepared_query($link, $query, "s", array($genre));
+		if (mysqli_error($link)) die(mysqli_error($link));
+		
+		if (empty($result)) {
+			$query = "INSERT INTO genre VALUES(DEFAULT, ?, NULL)";
+			$result = mysqli_prepared_query($link, $query, "s", array($genre));
+			if (mysqli_error($link)) die(mysqli_error($link));
+			$gid = mysqli_insert_id($link);
+		} else {
+			$gid = $result[0]["GID"];
+		}
+	
+		$query = "UPDATE album SET genre = ? WHERE albumID = ?";
+		mysqli_prepared_query($link, $query, "dd", array($gid, $aid));
+	}
+	
 	function addAlbum($title, $artistid, $year=null, $genre=null) {
 		$link = get_mysqli_link();
 		$query = "INSERT INTO album VALUES(DEFAULT, ?, ?, ?)";
@@ -85,23 +124,7 @@ class AlbumWorker {
 		mysqli_prepared_query($link, $acq, "dd", array($artistid, $retid));
 		return $retid;
 	}
-	/*
-	function addAlbum($title, $artist_array) {
-		// Check if the album exists already.
-		
-		$link = get_mysqli_link();
-		$query = "INSERT INTO album(`name`) VALUES(?)";
-		$params = array($title);
-		mysqli_prepared_query($link, $query, "s", $params);
-		if (mysqli_error($link)) die("Unable to create album " . $title);
-		foreach ($artist_array as $a) {
-			$query = "INSERT INTO albumcontributor VALUES(?, ?)";
-			$params = array(mysqli_insert_id(), $a);
-			mysqli_prepared_query($link, $query, "dd", $params);
-			if (mysqli_error($link)) die("Unable to add artist to album " . $a);
-		}
-	}
-	*/
+
 }
 
 ?>
