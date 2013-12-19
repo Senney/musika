@@ -21,10 +21,9 @@ $playlists = $plw->getPlaylists(usrid());
 		
 		<!-- Bootstrap paginator -->
 		<script src="libs/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-		<script id="playlist_list" type="text">
-
-		</script>
+        <script src="js/rating.js"></script>
         <script src="js/library.js"></script>
+		
     </head>
     <body>
 		<?php
@@ -65,20 +64,6 @@ $playlists = $plw->getPlaylists(usrid());
 							</div>
 						</div>
 						<br />
-						<script>
-							$(function() { 
-								$(".auto-submit-star").rating({
-									callback: function(value, link) {
-										alert(value);
-									}
-								});
-							});
-						</script>
-						<span class="star-rating-control">
-							<div class="star-rating rater-0 auto-submit-star star-rating-applied star-rating-live">
-								<a title="2">2</a>
-							</div>
-						</span>
 						<div id="error">
 						</div>
 						<table class="table table-hover">

@@ -40,9 +40,7 @@ else if ($type == 4 ){
 //done
 }
 else if ($type == 5){
-	$userid = $_GET["user-id"];
-	$playlist_name = $_GET["playlist-id"];
-	$playlist_worker->addRating(usrid(),$userid,$playlist_name);
+	die("Moved");
 //done
 
 }

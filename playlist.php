@@ -17,6 +17,12 @@ $playlists = $plw->getPlaylists(usrid());
         <?php
         load_bootstrap_css();
         ?>
+		<script src="js/rating.js"></script>
+		<script>
+			$(function() {
+				setup_raters("handlers/playlist_rating_handler.php", false);
+			});
+		</script>
     </head>
     <body>
 		<?php
@@ -62,7 +68,9 @@ $playlists = $plw->getPlaylists(usrid());
 										</a>
 									</div>
 									<div class="col-md-4">
-										<span class="pull-right">Rating Here</span>
+										<span class="pull-right">
+											<div class="song-rating" data-average="<?=$plw->getAverageRating($pl["pId"]);?>" data-id="<?=$pl["pId"];?>"></div>
+										</span>
 									</div>
 								</div>
 							</li>

@@ -4,15 +4,15 @@ require_once "../database/database.php";
 require_once "../workers/user_worker.php";
 require_once "../workers/song_rating_worker.php";
 
-if(!keys_exist($_GET, array("songid","rating"))) {
+if(!keys_exist($_POST, array("idBox","rate"))) {
 	header("Location:../index.php?error=0");
 	exit(1);
 }
 
 $rating_worker = new SongRatingWorker();
 $user_id = usrid();
-$song_id = $_GET["songid"];
-$rating = $_GET["rating"];
+$song_id = $_POST["idBox"];
+$rating = $_POST["rate"];
 
 
 $myrating = $rating_worker->getRating($user_id,$song_id);

@@ -31,8 +31,9 @@ require_once __DIR__ . "/../database/database.php";
 	
 		public function getAverage($songid){
 			$link = get_mysqli_link();
-			$query = "SELECT AVG(rating) AS avg FROM songrating WHERE songrating.songId = ?";
+			$query = "SELECT AVG(rating) AS avg FROM songrating WHERE songrating.songId = ? GROUP BY songrating.songId";
 			$result = mysqli_prepared_query($link,$query,"d",array($songid));
+			if (empty($result)) return 0;
 			return $result[0]["avg"];
 		
 		}

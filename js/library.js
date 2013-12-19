@@ -95,6 +95,8 @@ function load_music_table_ajax(page) {
 				$("#music-display-table-body tr:last").append($("<td>").append($(s[ele])));
 			}
 		}
+		
+		setup_raters("handlers/song_rating_handler.php", false);
 	});
 }
 

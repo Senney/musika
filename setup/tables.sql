@@ -134,14 +134,12 @@ CREATE TABLE IF NOT EXISTS playlistentry(
 );
 
 CREATE TABLE IF NOT EXISTS playlistrating(
-	userId1 INTEGER NOT NULL,
-	userId2 INTEGER NOT NULL,
+	userId INTEGER NOT NULL,
 	pId INTEGER NOT NULL,
 	rating INTEGER NOT NULL,
 	
-	PRIMARY KEY (userId1, userId2, pId),
-	FOREIGN KEY (userId1) REFERENCES users(UserId),
-	FOREIGN KEY (userId2) REFERENCES users(UserId),
+	PRIMARY KEY (userId, pId),
+	FOREIGN KEY (userId) REFERENCES users(UserId),
 	FOREIGN KEY (pId) REFERENCES playlist(pId)
 );
 

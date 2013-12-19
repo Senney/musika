@@ -4,6 +4,7 @@ require_once "./workers/artist_worker.php";
 require_once "./workers/album_worker.php";
 require_once "./workers/song_worker.php";
 require_once "./workers/ownership_worker.php";
+require_once "./workers/song_rating_worker.php";
 
 if (!isset($_GET["song-name"]) && !isset($_GET["album-name"]) && !isset($_GET["artist-name"])) {
 	header("Location: add.php");
@@ -49,6 +50,7 @@ if (empty($song_name) && empty($album_name) && !empty($artist_name)) {
 
 function renderSongTable($song_results) {
 	$owner = new OwnershipWorker(usrid());
+	$rw = new SongRatingWorker();
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -68,12 +70,13 @@ function renderSongTable($song_results) {
 			<tbody>
 				<?php
 				foreach ($song_results as $s) {
+					$rating = $rw->getAverage($s["SID"]);
 				?>
 				<tr>
 					<td><a href="song.php?id=<?=$s["SID"];?>"><?=$s["title"];?></a></td>
 					<td><a href="album.php?id=<?=$s["albumID"];?>"><?=$s["albumname"];?></a></td>
 					<td><a href="artist.php?id=<?=$s["artistId"];?>"><?=$s["artistname"];?></a></td>
-					<td>My Rating</td>
+					<td><?=round($rating, 2);?> Stars</td>
 					<td>
 					<?php
 					$url = "handlers/song_handler.php?songid=".$s["SID"]."&albumid=".$s["albumID"];
@@ -195,6 +198,12 @@ function renderAlbumTable($album_results) {
         <?php
         load_bootstrap_css();
         ?>
+		<script src="js/rating.js"></script>
+		<script>
+			$(function() {
+				setup_raters("null", true);
+			});
+		</script>
     </head>
     <body>
 		<?php

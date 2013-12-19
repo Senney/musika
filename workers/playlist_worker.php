@@ -37,18 +37,40 @@ class PlaylistWorker{
 		$result = mysqli_prepared_query($link, $query, "dds", array(usrid(),$userId, $pId, $message));
 	}
 	
+	public function getRating($userId, $pId) {
+		$link = get_mysqli_link();
+		$query = "SELECT * FROM playlistrating WHERE userId = ? AND pId = ?";
+		$result = mysqli_prepared_query($link, $query, "dd", array($userId, $pId));
+		if (empty($result)) return false;
+		return $result[0]["rating"];
+	}
+	
+	public function getAverageRating($pid) {
+		$link = get_mysqli_link();
+		$query = "SELECT AVG(rating) AS avg FROM playlistrating WHERE pId = ? GROUP BY pId";
+		$result = mysqli_prepared_query($link, $query, "d", array($pid));
+		if (mysqli_error($link)) die(mysqli_error($link));
+		if (empty($result)) return 0;
+		return $result[0]["avg"];
+	}
+	
 	public function addRating($userId, $pId, $rating){
 		$link = get_mysqli_link();
 		$query = "INSERT INTO playlistrating Values(?, ?, ?)";
-		$result = mysqli_prepared_query($link, $query, "dddd", array($userId, $pId, $rating));
+		$result = mysqli_prepared_query($link, $query, "ddd", array($userId, $pId, $rating));
+	}
+	
+	public function updateRating($userid,$pid,$rating){
+		$link = get_mysqli_link();
+		$query = "UPDATE playlistentry SET rating ? WHERE userId = ? ".
+		"AND pId = ?";
+		$result = mysqli_prepared_query($link,$query,"ddd",array($rating, $userid, $pid));
 	}
 	
 	public function addSongToPlayList($song_id,$pid,$albumid){
 		$link = get_mysqli_link();
 		$query = "INSERT INTO playlistentry Values(?,?,?,?)";
 		$result = mysqli_prepared_query($link,$query,"dddd",array(usrid(),$pid,$song_id,$albumid));
-	
-	
 	}
 	
 	public function deleteSongFromPlaylist($songid,$pId,$albumid){
@@ -73,7 +95,7 @@ class PlaylistWorker{
 		$result = mysqli_prepared_query($link,$query,"d",array($pid));
 		
 	}
-	
+
 	
 }
 ?>

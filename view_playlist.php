@@ -2,6 +2,7 @@
 require_once "./common/common.php";
 require_once "./workers/playlist_worker.php";
 require_once "./workers/song_worker.php";
+require_once "./workers/song_rating_worker.php";
 
 if (!isset($_GET["id"])) {
 	header("Location: playlist.php");
@@ -12,7 +13,7 @@ $plw = new PlaylistWorker();
 $sw = new SongWorker();
 $pl = $plw->getPlaylist($_GET["id"]);
 $songs = $plw->getPlaylistSongs($_GET["id"]);
-
+$srate = new SongRatingWorker();
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +24,12 @@ $songs = $plw->getPlaylistSongs($_GET["id"]);
         <?php
         load_bootstrap_css();
         ?>
+		<script src="js/rating.js"></script>
+		<script>
+		$(function(){
+			setup_raters("handlers/song_rating_handler.php", false);
+			});
+		</script>
     </head>
     <body>
 		<?php
@@ -47,13 +54,14 @@ $songs = $plw->getPlaylistSongs($_GET["id"]);
 							<?php
 							foreach ($songs as $sr) {
 								$s = $sw->getSongData($sr["sId"], $sr["aId"]);
+								$rating = $srate->getAverage($s["SID"]);
 								$url = "handlers/add_playlist_handler.php?type=4";
 							?>
 							<tr>
 								<td><a href="song.php?id=<?=$s["SID"];?>"><?=$s["title"];?></a></td>
 								<td><a href="album.php?id=<?=$s["albumID"];?>"><?=$s["albumname"];?></a></td>
 								<td><a href="artist.php?id=<?=$s["artistId"];?>"><?=$s["artistname"];?></a></td>
-								<td>My Rating</td>
+								<td><div class="song-rating" data-average="<?=$rating;?>" data-id="<?=$s["SID"];?>"></div></td>
 								<td>
 									<div class="btn-group">
 										<button class="btn btn-xs btn-danger dropdown-toggle" data-toggle="dropdown">Options</button>

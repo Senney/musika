@@ -17,6 +17,7 @@ $userid = usrid();
 $worker = new OwnershipWorker($userid);
 $sw = new SongWorker();
 $plw = new PlaylistWorker();
+$rw = new SongRatingWorker();
 $playlists = $plw->getPlaylists($userid);
 if ($type == "song") {
 	$returndata = array("head" => array("Title", "Artist", "Album", "Genre", "Rating", "Options"), "data" => array());
@@ -30,7 +31,7 @@ if ($type == "song") {
 		$newsong["artist"] = "<a href='artist.php?id=".$song["artistid"]."'>".$song["artistname"]."</a>";
 		$newsong["album"] = "<a href='album.php?id=".$song["albumid"]."'>".$song["albumname"]."</a>";
 		$newsong["genre"] = $genre;
-		$newsong["rating"] = "<span>My Rating</span>";
+		$newsong["rating"] = "<div class='song-rating' data-average = '".$rw->getAverage($song["songid"])."' data-id = '".$song["songid"]."'></div>";
 		
 		$pl_list = "";
 		if ($playlists) {

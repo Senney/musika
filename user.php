@@ -133,9 +133,16 @@ $playlists = $plw->getPlaylists($userid);
 											foreach ($playlists as $pl) {
 										?>
 										<li class="list-group-item">
-											<a href="view_playlist.php?id=<?=$pl["pId"];?>">
-												<?=$pl["name"];?>
-											</a>
+											<div class="row">
+												<div class="col-md-8">
+														<a href="view_playlist.php?id=<?=$pl["pId"];?>">
+															<?=$pl["name"];?>
+														</a>
+												</div>
+												<div class="col-md-4">
+													<span class="pull-right">Rating Here</span>
+												</div>
+											</div>
 										</li>
 										<?php
 										}
