@@ -7,6 +7,8 @@ echo '
 <link href="css/musika-common.css" rel="stylesheet">
 <script src="libs/jquery.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="libs/jquery-star-rating/jquery.rating.pack.js"></script>
+<link href="libs/jquery-star-rating/jquery.rating.css" rel="stylesheet">
 ';
 }
 

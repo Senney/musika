@@ -65,8 +65,21 @@ $playlists = $plw->getPlaylists(usrid());
 							</div>
 						</div>
 						<br />
+						<script>
+							$(function() { 
+								$(".auto-submit-star").rating({
+									callback: function(value, link) {
+										alert(value);
+									}
+								});
+							});
+						</script>
+						<span class="star-rating-control">
+							<div class="star-rating rater-0 auto-submit-star star-rating-applied star-rating-live">
+								<a title="2">2</a>
+							</div>
+						</span>
 						<div id="error">
-						
 						</div>
 						<table class="table table-hover">
 							<thead id="music-display-table-head">
