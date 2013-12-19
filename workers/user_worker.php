@@ -15,6 +15,13 @@ class UserWorker {
 		return $result[0];
 	}
 	
+	public function findUserNames($username) {
+		$query = "SELECT username FROM users WHERE username LIKE ?";
+		$link = get_mysqli_link();
+		$result = mysqli_prepared_query($link, $query, "s", array($username));
+		return $result;
+	}
+	
 	public function getByName($name) {
 		$query = "SELECT * FROM users WHERE username = ?";
 		$params = array($name);

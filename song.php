@@ -4,11 +4,13 @@ require_once "./workers/song_worker.php";
 require_once "./workers/artist_worker.php";
 require_once "./workers/album_worker.php";
 require_once "./workers/ownership_worker.php";
+require_once "./workers/song_rating_worker.php";
 
 $worker = new SongWorker();
 $artist = new ArtistWorker();
 $album = new AlbumWorker();
 $owner = new OwnershipWorker(usrid());
+$srw = new SongRatingWorker();
 
 if (!isset($_GET["id"])) {
 	$errmsg = "A song ID is required to view a song.";
@@ -34,6 +36,12 @@ else {
         <?php
         load_bootstrap_css();
         ?>
+		<script src="js/rating.js"></script>
+		<script>
+			$(function() {
+				setup_raters("handlers/song_rating_handler.php", false);
+			});
+		</script>
     </head>
     <body>
 		<?php
@@ -57,7 +65,11 @@ else {
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3><?php echo $song_data["title"]; ?></h3>
+							<div class="row">
+								<div class="col-md-6">
+									<h3><?php echo $song_data["title"]; ?></h3>
+								</div>
+							</div>
 						</div>
 						<div class="panel-body">
 							<div class="row">
@@ -65,6 +77,9 @@ else {
 									<h4>By <a href="artist.php?id=<?=$artist_data["artistId"];?>"><?=$artist_data["name"];?></a></h4>
 								</div>
 								<div class="col-md-6">
+									<span class="pull-right">
+										<strong>Song Rating</strong> <div class="song-rating" data-average="<?=$srw->getAverage($song_data["SID"]);?>" data-id="<?=$song_data["SID"];?>"></div>
+									</span>
 								</div>
 							</div>
 							<div class="row">

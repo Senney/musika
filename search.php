@@ -43,7 +43,7 @@ if (empty($song_name) && empty($album_name) && !empty($artist_name)) {
 	$song_name = "%" . $song_name . "%";
 	$artist_name = (!empty($artist_name)) ? "%" . $artist_name . "%" : $artist_name;
 	$album_name = (!empty($album_name)) ? "%" . $album_name . "%" : $album_name;
-	$song_results = $song->findSongArtistAlbumName($song_name, $artist_name, $album_name, -1);
+	$song_results = $song->findSongArtistAlbumName($song_name, $artist_name, $album_name, 100);
 } else {
 	$decstr = "No search parameters included.";
 }

@@ -62,9 +62,10 @@ class PlaylistWorker{
 	
 	public function updateRating($userid,$pid,$rating){
 		$link = get_mysqli_link();
-		$query = "UPDATE playlistentry SET rating ? WHERE userId = ? ".
+		$query = "UPDATE playlistrating SET rating = ? WHERE userId = ? ".
 		"AND pId = ?";
 		$result = mysqli_prepared_query($link,$query,"ddd",array($rating, $userid, $pid));
+		if (mysqli_error($link)) die(mysqli_error($link));
 	}
 	
 	public function addSongToPlayList($song_id,$pid,$albumid){

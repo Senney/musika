@@ -33,6 +33,19 @@ $playlists = $plw->getPlaylists($userid);
 				margin-top: 15px;
 			}
 		</style>
+		<script src="libs/typeahead.js/typeahead.min.js"></script>
+		<script src="js/rating.js"></script>
+		<script>
+			$(function() {
+				setup_raters("handlers/playlist_rating_handler.php", false);
+				
+				$("#user-name-search .typeahead").typeahead({
+					name: 'user-search',
+					prefetch: 'handlers/user_search_handler.php",
+					limit: 10
+				});
+			});
+		</script>		
     </head>
     <body>
 		<?php
@@ -123,6 +136,15 @@ $playlists = $plw->getPlaylists($userid);
 									<?php
 									}
 									?>
+										<li class="list-group-item">
+											<div class="input-group">
+												<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+												<input type="text" id="user-name-search" name="user-name" class="form-control typeahead" placeholder="Search for new friends" />
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="submit">Add As Friend</button>
+												</span>
+											</div>
+										</li>
 									</ul>
 								</div>
 								<div class = "col-md-6">
@@ -140,7 +162,9 @@ $playlists = $plw->getPlaylists($userid);
 														</a>
 												</div>
 												<div class="col-md-4">
-													<span class="pull-right">Rating Here</span>
+													<span class="pull-right">
+														<div class="song-rating" data-average="<?=$plw->getAverageRating($pl["pId"]);?>" data-id="<?=$pl["pId"];?>"></div>
+													</span>
 												</div>
 											</div>
 										</li>

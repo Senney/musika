@@ -3,6 +3,7 @@ require_once "./common/common.php";
 require_once "./workers/playlist_worker.php";
 require_once "./workers/song_worker.php";
 require_once "./workers/song_rating_worker.php";
+require_once "./workers/user_worker.php";
 
 if (!isset($_GET["id"])) {
 	header("Location: playlist.php");
@@ -14,6 +15,8 @@ $sw = new SongWorker();
 $pl = $plw->getPlaylist($_GET["id"]);
 $songs = $plw->getPlaylistSongs($_GET["id"]);
 $srate = new SongRatingWorker();
+$uw = new UserWorker();
+
 ?>
 
 <!DOCTYPE html>
@@ -21,23 +24,35 @@ $srate = new SongRatingWorker();
     <head>
         <title>Musika - Music Library</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="js/rating.js"></script>
         <?php
         load_bootstrap_css();
         ?>
-		<script src="js/rating.js"></script>
 		<script>
 		$(function(){
 			setup_raters("handlers/song_rating_handler.php", false);
+			setup_raters_class(".playlist-rate", "handlers/playlist_rating_handler.php", false);
 			});
 		</script>
+		
     </head>
     <body>
 		<?php
 		require_once "./common/navbar.php";
 		?>
 		<div class="container">
+			<div class = "row">
+				<div class="col-md-8">
+					<h4><a href="playlist.php">My Playlists</a> > <?=$pl["name"];?> <small><?=count($songs);?> song<?=count($songs)==1?"":"s";?></small></h4>	
+				</div>
+				<div class="col-md-4">
+					<span class="pull-right">
+						Playlist Rating
+						<div class="playlist-rate" data-average="<?=$plw->getAverageRating($pl["pId"]);?>" data-id="<?=$pl["pId"];?>"></div>
+					</span>	
+				</div>
+			</div>
 			<div class="row">
-				<h4><a href="playlist.php">My Playlists</a> > <?=$pl["name"];?> <small><?=count($songs);?> song<?=count($songs)==1?"":"s";?></small></h4>
 				<div class="col-md-12">
 				<?php
 				if (!empty($songs)) {
@@ -63,6 +78,9 @@ $srate = new SongRatingWorker();
 								<td><a href="artist.php?id=<?=$s["artistId"];?>"><?=$s["artistname"];?></a></td>
 								<td><div class="song-rating" data-average="<?=$rating;?>" data-id="<?=$s["SID"];?>"></div></td>
 								<td>
+								<?php
+									if (usrid() == $pl["userId"]) {
+								?>
 									<div class="btn-group">
 										<button class="btn btn-xs btn-danger dropdown-toggle" data-toggle="dropdown">Options</button>
 										<button class="btn btn-xs btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -74,6 +92,9 @@ $srate = new SongRatingWorker();
 											</li>
 										</ul>
 									</div>
+								<?php
+								}
+								?>
 								</td>
 							</tr>
 							<?php
